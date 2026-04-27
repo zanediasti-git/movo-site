@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="MOVO electrolyte pouches. Clean hydration, anytime, anywhere."
+    />
+    <title>MOVO | Clean Hydration, Anytime</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/home.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="index.html" aria-label="MOVO home">
+          <img class="brand__mark" src="assets/logo.svg" alt="" />
+          <span class="brand__name">MOVO</span>
+        </a>
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-controls="primary-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="product.html">Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__bg" aria-hidden="true"></div>
+        <div class="container hero__inner">
+          <p class="eyebrow">Electrolytes. Reimagined.</p>
+          <h1 id="hero-title" class="hero__title">
+            Clean Hydration.<br />Anytime. Anywhere.
+          </h1>
+          <p class="hero__sub">
+            Pocket-sized electrolyte pouches with no sugar, no bottle, no excuses.
+          </p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="product.html">Explore the Pouch</a>
+            <a class="btn btn--ghost" href="#intro">Learn more</a>
+          </div>
+        </div>
+        <img
+          class="hero__wave"
+          src="assets/wave.svg"
+          alt=""
+          aria-hidden="true"
+        />
+      </section>
+
+      <section class="intro" id="intro" aria-labelledby="intro-title">
+        <div class="container intro__inner">
+          <h2 id="intro-title" class="section-title">A new way to hydrate</h2>
+          <!-- TODO: replace with brand copy -->
+          <p class="intro__lede">
+            MOVO is a fresh, modern way to stay hydrated on the go. Every pouch
+            delivers a clean dose of electrolytes&mdash;no sugar, no bottle, no
+            slowing down. Built for daily wellness, peak performance, and
+            everything in between. <em>(Placeholder copy &mdash; replace with
+            your real story.)</em>
+          </p>
+          <ul class="intro__features" role="list">
+            <li>
+              <span class="feature__icon" aria-hidden="true">&#9889;</span>
+              <h3>Pocket-ready</h3>
+              <p>Hydration that fits anywhere a phone does.</p>
+            </li>
+            <li>
+              <span class="feature__icon" aria-hidden="true">&#9889;</span>
+              <h3>Fast absorption</h3>
+              <p>Designed for quick uptake, anytime you need it.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="showcase" aria-labelledby="showcase-title">
+        <div class="container showcase__inner">
+          <div class="showcase__head">
+            <h2 id="showcase-title" class="section-title">Meet the pouch</h2>
+            <p class="showcase__sub">Our debut drop. Tap the card to learn more.</p>
+          </div>
+          <a class="product-card" href="product.html" aria-label="Electrolyte Pouch 1.0 — Coming soon">
+            <div class="product-card__media">
+              <span class="badge">Coming soon</span>
+              <img
+                src="assets/product-placeholder.svg"
+                alt="MOVO Electrolyte Pouch 1.0 tin"
+              />
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__title">Electrolyte Pouch 1.0</h3>
+              <p class="product-card__desc">
+                Enhance your performance.
+              </p>
+              <span class="product-card__cta">View product &rarr;</span>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <a class="brand brand--footer" href="index.html" aria-label="MOVO home">
+          <img class="brand__mark" src="assets/logo.svg" alt="" />
+          <span class="brand__name">MOVO</span>
+        </a>
+        <nav aria-label="Footer">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html">Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <p class="site-footer__legal">
+          &copy; <span id="year">2026</span> MOVO. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/nav.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Get in touch with MOVO. Questions, partnerships, or notifications about our launch."
+    />
+    <title>Contact | MOVO</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="index.html" aria-label="MOVO home">
+          <img class="brand__mark" src="assets/logo.svg" alt="" />
+          <span class="brand__name">MOVO</span>
+        </a>
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-controls="primary-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html">Shop</a></li>
+            <li><a href="contact.html" aria-current="page">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="contact" aria-labelledby="contact-title">
+        <div class="container contact__grid">
+          <div class="contact__intro">
+            <p class="eyebrow">Say hello</p>
+            <h1 id="contact-title" class="contact__title">
+              Let&rsquo;s talk hydration.
+            </h1>
+            <!-- TODO: replace with brand copy -->
+            <p class="contact__lede">
+              Questions, partnerships, press, or just want to be first in line
+              when MOVO drops? Send a note &mdash; we read every message.
+              <em>(Placeholder copy.)</em>
+            </p>
+
+            <ul class="contact__channels" role="list">
+              <li>
+                <span class="contact__channel-label">Email</span>
+                <a href="mailto:hello@movo.example">hello@movo.example</a>
+              </li>
+              <li>
+                <span class="contact__channel-label">Instagram</span>
+                <a href="#" rel="noopener">@movo</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- When ready, replace action with your Formspree/Web3Forms endpoint
+               and remove the JS stub in js/contact-form.js -->
+          <form
+            id="contact-form"
+            class="contact-form"
+            action="#"
+            method="POST"
+            novalidate
+          >
+            <div class="form-field">
+              <label for="name">Name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                required
+                minlength="2"
+              />
+              <p class="form-error" data-error-for="name"></p>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                />
+                <p class="form-error" data-error-for="email"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="phone">Phone</label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  autocomplete="tel"
+                  inputmode="tel"
+                  pattern="[0-9 +()\-]{7,}"
+                />
+                <p class="form-error" data-error-for="phone"></p>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject" required>
+                <option value="" disabled selected>Choose a topic</option>
+                <option value="general">General question</option>
+                <option value="notify">Notify me at launch</option>
+                <option value="press">Press / media</option>
+                <option value="partnerships">Partnerships</option>
+                <option value="other">Other</option>
+              </select>
+              <p class="form-error" data-error-for="subject"></p>
+            </div>
+
+            <div class="form-field">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                required
+                minlength="10"
+              ></textarea>
+              <p class="form-error" data-error-for="message"></p>
+            </div>
+
+            <button class="btn btn--primary btn--lg" type="submit">
+              Send message
+            </button>
+
+            <p
+              class="form-success"
+              id="form-success"
+              role="status"
+              aria-live="polite"
+              hidden
+            >
+              Thanks &mdash; we&rsquo;ll be in touch soon.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <a class="brand brand--footer" href="index.html" aria-label="MOVO home">
+          <img class="brand__mark" src="assets/logo.svg" alt="" />
+          <span class="brand__name">MOVO</span>
+        </a>
+        <nav aria-label="Footer">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html">Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <p class="site-footer__legal">
+          &copy; <span id="year">2026</span> MOVO. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/nav.js" defer></script>
+    <script src="js/contact-form.js" defer></script>
+  </body>
+</html>
