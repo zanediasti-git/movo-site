@@ -54,9 +54,10 @@
           <div class="product__media">
             <span class="badge badge--lg">Coming soon</span>
             <img
+              id="product-image"
               class="product__image"
-              src="assets/product-placeholder.svg"
-              alt="MOVO Electrolyte Pouch 1.0 tin"
+              src="assets/Pouch-m.jpg"
+              alt="MOVO Mint Electrolyte Pouch 1.0 tin"
             />
           </div>
 
@@ -77,14 +78,39 @@
               bottle, no sugar, no slowing down. <em>(Placeholder description.)</em>
             </p>
 
+            <fieldset class="product__flavors">
+              <legend>Flavor</legend>
+              <label class="flavor-option flavor-option--mint">
+                <input
+                  type="radio"
+                  name="flavor"
+                  value="mint"
+                  data-image="assets/Pouch-m.jpg"
+                  data-alt="MOVO Mint Electrolyte Pouch 1.0 tin"
+                  checked
+                />
+                <span>Mint</span>
+              </label>
+              <label class="flavor-option flavor-option--citrus">
+                <input
+                  type="radio"
+                  name="flavor"
+                  value="citrus"
+                  data-image="assets/Pouch-c.jpg"
+                  data-alt="MOVO Citrus Electrolyte Pouch 1.0 tin"
+                />
+                <span>Citrus</span>
+              </label>
+            </fieldset>
+
             <dl class="product__specs">
               <div>
                 <dt>Flavor</dt>
-                <dd>Mint</dd>
+                <dd id="selected-flavor">Mint</dd>
               </div>
               <div>
                 <dt>Count</dt>
-                <dd>15 pouches per tin</dd>
+                <dd>18 pouches per tin</dd>
               </div>
               <div>
                 <dt>Sugar</dt>
@@ -92,7 +118,10 @@
               </div>
               <div>
                 <dt>Ingredients</dt>
-                <dd>Sodium, potassium, magnesium &middot; <em>full list TBA</em></dd>
+                <dd>
+                  Sodium, Potassium, Magnesium, MCC, Acacia, Xylitol, Menthol,
+                  &amp; Natural Flavors.
+                </dd>
               </div>
             </dl>
 
@@ -134,5 +163,6 @@
     </footer>
 
     <script src="js/nav.js" defer></script>
+    <script src="js/product.js" defer></script>
   </body>
 </html>
