@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Learn how sodium supports hydration, nerve signals, and muscle contraction."
+    />
+    <title>Sodium | MOVO Ingredients</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/information.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="index.html" aria-label="MOVO home">
+          <img class="brand__mark" src="assets/logo.svg" alt="" />
+          <span class="brand__name">MOVO</span>
+        </a>
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-controls="primary-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html">Shop</a></li>
+            <li><a href="information.html" aria-current="page">Ingredients</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="ingredient-detail" aria-labelledby="ingredient-title">
+        <div class="container ingredient-detail__inner">
+          <a class="ingredient-detail__back" href="information.html">
+            Back to ingredients
+          </a>
+          <p class="eyebrow">Electrolyte</p>
+          <h1 id="ingredient-title" class="ingredient-detail__title">Sodium</h1>
+          <p class="ingredient-detail__copy">
+            When you sweat, sodium is the main thing leaving your body &mdash;
+            far more than any other mineral. It does two jobs: it holds water in
+            your bloodstream (so hydration actually sticks instead of passing
+            right through you), and it carries the electrical signals that tell
+            your muscles to contract. Run low on sodium and you feel it fast
+            &mdash; cramping, fatigue, that heavy-legged feeling late in a game.
+            Drinking plain water when you're sodium-depleted can actually make
+            it worse by diluting what's left. Replacing sodium during activity
+            keeps fluid balanced and muscles firing.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <a class="brand brand--footer" href="index.html" aria-label="MOVO home">
+          <img class="brand__mark" src="assets/logo.svg" alt="" />
+          <span class="brand__name">MOVO</span>
+        </a>
+        <nav aria-label="Footer">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html">Shop</a></li>
+            <li><a href="information.html">Ingredients</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <p class="site-footer__legal">
+          &copy; <span id="year">2026</span> MOVO. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/nav.js" defer></script>
+  </body>
+</html>

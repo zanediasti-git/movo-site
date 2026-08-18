@@ -53,11 +53,15 @@
 }
 
 .component-card {
+  display: block;
+  height: 100%;
   min-height: 210px;
   padding: 1.35rem;
   background: linear-gradient(180deg, #ffffff 0%, var(--bg-soft) 100%);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
+  color: var(--ink);
+  text-decoration: none;
   box-shadow: var(--shadow-sm);
   transition: transform 200ms var(--ease), box-shadow 200ms var(--ease),
     border-color 200ms var(--ease);
@@ -67,6 +71,11 @@
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
   border-color: rgba(0, 168, 232, 0.35);
+}
+
+.component-card:focus-visible {
+  outline: 3px solid rgba(0, 168, 232, 0.35);
+  outline-offset: 4px;
 }
 
 .component-card__label {
@@ -92,6 +101,14 @@
   font-size: 0.95rem;
 }
 
+.component-card__cta {
+  display: inline-flex;
+  margin-top: 1rem;
+  color: var(--brand-deep);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
 .info-callout {
   padding-block: clamp(1rem, 4vw, 3rem) clamp(4rem, 8vw, 6rem);
 }
@@ -99,7 +116,7 @@
 .info-callout__inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 2rem;
   padding: clamp(1.5rem, 4vw, 2.5rem);
   background: var(--ink);
@@ -133,6 +150,38 @@
   border-color: var(--accent);
 }
 
+.ingredient-detail {
+  padding-block: clamp(4rem, 9vw, 7rem);
+  background: radial-gradient(
+      55% 65% at 80% 15%,
+      rgba(127, 231, 212, 0.42),
+      transparent 70%
+    ),
+    linear-gradient(180deg, #ffffff 0%, var(--bg-soft) 100%);
+}
+
+.ingredient-detail__inner {
+  max-width: 780px;
+}
+
+.ingredient-detail__back {
+  display: inline-flex;
+  margin-bottom: 2rem;
+  color: var(--brand-deep);
+  font-weight: 600;
+}
+
+.ingredient-detail__title {
+  margin-bottom: 0.45em;
+}
+
+.ingredient-detail__copy {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: clamp(1.08rem, 1vw + 0.9rem, 1.25rem);
+  line-height: 1.8;
+}
+
 @media (max-width: 980px) {
   .component-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -145,11 +194,10 @@
   }
 
   .info-callout__inner {
-    align-items: stretch;
-    flex-direction: column;
+    align-items: center;
   }
 
   .info-callout .btn {
-    width: 100%;
+    width: auto;
   }
 }
