@@ -88,6 +88,7 @@
                   value="mint"
                   data-image="assets/Pouch-m.jpg"
                   data-alt="MOVO Mint Electrolyte Pouch 1.0 tin"
+                  data-checkout-url="https://buy.stripe.com/8x26oG9sY3waab01he0Ny01"
                   checked
                 />
                 <span>Mint</span>
@@ -99,6 +100,7 @@
                   value="citrus"
                   data-image="assets/Pouch-c.jpg"
                   data-alt="MOVO Citrus Electrolyte Pouch 1.0 tin"
+                  data-checkout-url="https://buy.stripe.com/eVq6oG0Ws6Im3MC1he0Ny00"
                 />
                 <span>Citrus</span>
               </label>
@@ -127,9 +129,13 @@
             </dl>
 
             <div class="product__actions">
-              <button class="btn btn--primary btn--lg" type="button" disabled>
-                Buy Now &mdash; Coming Soon
-              </button>
+              <a
+                class="btn btn--primary btn--lg"
+                id="buy-now"
+                href="https://buy.stripe.com/8x26oG9sY3waab01he0Ny01"
+              >
+                Buy Now
+              </a>
               <p class="product__notify">
                 Want first dibs?
                 <a href="contact.html">Notify me when it drops &rarr;</a>

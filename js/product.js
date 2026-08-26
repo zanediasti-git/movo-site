@@ -3,6 +3,7 @@
 
   const selectedFlavor = document.getElementById("selected-flavor");
   const productImage = document.getElementById("product-image");
+  const buyNow = document.getElementById("buy-now");
   const flavorInputs = document.querySelectorAll('input[name="flavor"]');
 
   if (!selectedFlavor || !flavorInputs.length) return;
@@ -18,6 +19,10 @@
     if (productImage && input.dataset.image) {
       productImage.src = input.dataset.image;
       productImage.alt = input.dataset.alt || `${flavorText} electrolyte pouch`;
+    }
+
+    if (buyNow && input.dataset.checkoutUrl) {
+      buyNow.href = input.dataset.checkoutUrl;
     }
   }
 
