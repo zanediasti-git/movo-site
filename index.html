@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="MOVO electrolyte pouches. Clean hydration, anytime, anywhere."
+      content="MOVO electrolyte pouches. Zero-sugar electrolyte pouches made for life on the move. No bottle, no mixing, no nicotine."
     />
-    <title>MOVO | Clean Hydration, Anytime</title>
+    <title>MOVO | Hydration Without the Bottle</title>
     <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/compare.css" />
+    <link rel="stylesheet" href="css/waitlist.css" />
     <link rel="stylesheet" href="css/home.css" />
   </head>
   <body>
@@ -40,59 +43,203 @@
         </button>
         <nav class="primary-nav" id="primary-nav" aria-label="Primary">
           <ul>
-            <li><a href="index.html" aria-current="page">Home</a></li>
             <li><a href="product.html">Shop</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
             <li><a href="information.html">Ingredients</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="science.html">The Science</a></li>
+            <li><a href="story.html">Our Story</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
     <main id="main">
-      <section class="product-promo" aria-labelledby="product-promo-title">
-        <div class="container product-promo__inner">
-          <div class="product-promo__copy">
-            <p class="eyebrow">Debut drop</p>
-            <h1 id="product-promo-title" class="product-promo__title">
-              Clean Hydration.<br />Anytime. Anywhere.
+      <section class="masthead" aria-labelledby="masthead-title">
+        <div class="container masthead__inner">
+          <div class="masthead__copy">
+            <p class="eyebrow">Coming soon</p>
+            <h1 id="masthead-title" class="masthead__title">
+              Hydration.<br />Without the bottle.
             </h1>
-            <p class="product-promo__sub">
-              Electrolyte pouches built for clean, on-the-go hydration. No
-              sugar, no bottle, no slowing down.
+            <p class="masthead__sub">
+              Zero-sugar electrolyte pouches made for life on the move.
             </p>
-            <div class="product-promo__cta">
-              <a class="btn btn--primary" href="product.html">Explore the Pouch</a>
-              <a class="btn btn--ghost" href="information.html">View ingredients</a>
+            <div class="masthead__cta">
+              <a class="btn btn--primary btn--lg" href="product.html">Shop MOVO</a>
+              <a class="btn btn--ghost btn--lg" href="how-it-works.html">
+                How it works
+              </a>
             </div>
+            <ul class="masthead__trust" role="list">
+              <li>18 pouches</li>
+              <li>Zero sugar</li>
+              <li>Zero nicotine</li>
+              <li>Made in Denmark</li>
+            </ul>
           </div>
-          <div class="product-promo__media">
-            <img
-              src="assets/Image-front.jpg"
-              alt="MOVO Electrolyte Pouch 1.0 product"
-            />
+
+          <div class="masthead__gallery">
+            <figure class="masthead__shot masthead__shot--tin">
+              <img
+                src="assets/Image-front.jpg"
+                alt="MOVO Mint electrolyte pouch tin, open, with loose pouches beside it"
+                width="1200"
+                height="1102"
+              />
+            </figure>
+            <figure class="masthead__shot">
+              <img
+                src="assets/pouch-open-top.jpg"
+                alt="Open MOVO tin seen from above, filled with 18 white pouches"
+                width="1024"
+                height="1024"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="masthead__shot">
+              <img
+                src="assets/pouches-loose.jpg"
+                alt="A single MOVO pouch held between two fingers"
+                width="1024"
+                height="1024"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="masthead__shot">
+              <img
+                src="assets/hero-lifestyle.jpg"
+                alt="A man resting outdoors after a workout"
+                width="864"
+                height="1152"
+                loading="lazy"
+              />
+            </figure>
           </div>
         </div>
       </section>
 
-      <section class="showcase" aria-labelledby="showcase-title">
-        <div class="container showcase__inner">
-          <div class="showcase__head">
-            <h2 id="showcase-title" class="section-title">Meet the pouch</h2>
-            <p class="showcase__sub">Our debut drop. Tap the card to learn more.</p>
+      <section class="section" id="how-it-works" aria-labelledby="how-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Three steps</p>
+            <h2 id="how-title" class="section-title">How MOVO works</h2>
+            <p>
+              No shaker. No bottle. No waiting for a powder to dissolve. Open
+              the tin and go.
+            </p>
           </div>
-          <a class="product-card" href="product.html" aria-label="Electrolyte Pouch 1.0 — Coming soon">
+
+          <ol class="steps" role="list">
+            <li class="step">
+              <div class="step__media">
+                <span class="step__num" aria-hidden="true">1</span>
+                <img
+                  src="assets/step-pop-it-in.jpg"
+                  alt="A person holding a MOVO pouch up to their mouth"
+                  width="1152"
+                  height="864"
+                  loading="lazy"
+                />
+              </div>
+              <div class="step__body">
+                <h3 class="step__title">Pop it in</h3>
+                <p>Place one pouch between lip and gum.</p>
+              </div>
+            </li>
+            <li class="step">
+              <div class="step__media">
+                <span class="step__num" aria-hidden="true">2</span>
+                <img
+                  src="assets/step-keep-moving.jpg"
+                  alt="A runner mid-stride on a sunlit path"
+                  width="1152"
+                  height="864"
+                  loading="lazy"
+                />
+              </div>
+              <div class="step__body">
+                <h3 class="step__title">Keep moving</h3>
+                <p>No mixing, shaker, or bottle.</p>
+              </div>
+            </li>
+            <li class="step">
+              <div class="step__media">
+                <span class="step__num" aria-hidden="true">3</span>
+                <img
+                  src="assets/step-hydrate-anywhere.jpg"
+                  alt="A MOVO tin being slipped into a trouser pocket"
+                  width="1152"
+                  height="864"
+                  loading="lazy"
+                />
+              </div>
+              <div class="step__body">
+                <h3 class="step__title">Hydrate anywhere</h3>
+                <p>Electrolytes wherever you go.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="format" aria-labelledby="format-title">
+        <div class="container format__inner">
+          <p class="eyebrow">What it is, and isn't</p>
+          <h2 id="format-title" class="format__title">
+            The pouch format. Reimagined for hydration.
+          </h2>
+          <p class="format__lede">
+            We took the most convenient format there is and filled it with
+            electrolytes instead. Nothing else comes along for the ride.
+          </p>
+          <ul class="zero-bar" role="list">
+            <li>
+              <span class="zero-bar__num">0</span>
+              <span class="zero-bar__label">Nicotine</span>
+            </li>
+            <li>
+              <span class="zero-bar__num">0</span>
+              <span class="zero-bar__label">Caffeine</span>
+            </li>
+            <li>
+              <span class="zero-bar__num">0</span>
+              <span class="zero-bar__label">Sugar</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section section--soft" aria-labelledby="showcase-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Debut drop</p>
+            <h2 id="showcase-title" class="section-title">
+              MOVO Electrolyte Pouches
+            </h2>
+            <p>Two flavors at launch. Tap through for the full breakdown.</p>
+          </div>
+
+          <a
+            class="product-card"
+            href="product.html"
+            aria-label="MOVO Electrolyte Pouches — coming soon"
+          >
             <div class="product-card__media">
               <span class="badge">Coming soon</span>
               <img
                 src="assets/Pouch-c.jpg"
-                alt="MOVO Citrus Electrolyte Pouch 1.0 tin"
+                alt="MOVO Citrus electrolyte pouch tin"
+                width="1000"
+                height="1000"
+                loading="lazy"
               />
             </div>
             <div class="product-card__body">
-              <h3 class="product-card__title">Electrolyte Pouch 1.0</h3>
-              <p class="product-card__desc">
-                Enhance your performance.
+              <h3 class="product-card__title">MOVO Electrolyte Pouches</h3>
+              <p class="product-card__flavors">Mint &nbsp;|&nbsp; Citrus</p>
+              <p class="tin-count">
+                <span class="tin-count__num">18</span>
+                <span class="tin-count__label">pouches per tin</span>
               </p>
               <span class="product-card__cta">View product &rarr;</span>
             </div>
@@ -100,66 +247,316 @@
         </div>
       </section>
 
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero__bg" aria-hidden="true"></div>
-        <div class="container hero__inner">
-          <p class="eyebrow">Electrolytes. Reimagined.</p>
-          <h1 id="hero-title" class="hero__title">
-            More MOVO story coming soon.
-          </h1>
-          <p class="hero__sub">
-            Pocket-sized electrolyte pouches;<br />no sugar, no bottle, no excuses.
-          </p>
-          <div class="hero__cta">
-            <a class="btn btn--primary" href="product.html">Explore the Pouch</a>
-            <a class="btn btn--ghost" href="information.html">Learn more</a>
+      <section class="section" aria-labelledby="why-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Why MOVO?</p>
+            <h2 id="why-title" class="section-title">
+              Same electrolytes. Far less hassle.
+            </h2>
+            <p>
+              Sports drinks and powders work. They just ask you to carry a
+              bottle, find water, and stop what you are doing. MOVO is about
+              the format, not the formula.
+            </p>
           </div>
+
+          <div class="compare__scroll">
+            <table class="compare-table">
+              <caption class="visually-hidden">
+                Convenience comparison between MOVO pouches, bottled sports
+                drinks, and powder sticks
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">
+                    <span class="visually-hidden">Feature</span>
+                  </th>
+                  <th scope="col" class="is-movo">MOVO</th>
+                  <th scope="col">Sports drink</th>
+                  <th scope="col">Powder</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Electrolytes</th>
+                  <td class="is-movo">
+                    <span class="mark mark--yes" aria-hidden="true">&#10003;</span>
+                    <span class="visually-hidden">Yes</span>
+                  </td>
+                  <td>
+                    <span class="mark mark--yes" aria-hidden="true">&#10003;</span>
+                    <span class="visually-hidden">Yes</span>
+                  </td>
+                  <td>
+                    <span class="mark mark--yes" aria-hidden="true">&#10003;</span>
+                    <span class="visually-hidden">Yes</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Zero sugar</th>
+                  <td class="is-movo">
+                    <span class="mark mark--yes" aria-hidden="true">&#10003;</span>
+                    <span class="visually-hidden">Yes</span>
+                  </td>
+                  <td>
+                    <span class="mark mark--no" aria-hidden="true">&#8211;</span>
+                    <span class="visually-hidden">No</span>
+                  </td>
+                  <td>
+                    <span class="mark mark--part" aria-hidden="true">~</span>
+                    <span class="visually-hidden">Varies by brand</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">No bottle</th>
+                  <td class="is-movo">
+                    <span class="mark mark--yes" aria-hidden="true">&#10003;</span>
+                    <span class="visually-hidden">Yes</span>
+                  </td>
+                  <td>
+                    <span class="mark mark--no" aria-hidden="true">&#8211;</span>
+                    <span class="visually-hidden">No</span>
+                  </td>
+                  <td>
+                    <span class="mark mark--no" aria-hidden="true">&#8211;</span>
+                    <span class="visually-hidden">No</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">No mixing</th>
+                  <td class="is-movo">
+                    <span class="mark mark--yes" aria-hidden="true">&#10003;</span>
+                    <span class="visually-hidden">Yes</span>
+                  </td>
+                  <td>
+                    <span class="mark mark--yes" aria-hidden="true">&#10003;</span>
+                    <span class="visually-hidden">Yes</span>
+                  </td>
+                  <td>
+                    <span class="mark mark--no" aria-hidden="true">&#8211;</span>
+                    <span class="visually-hidden">No</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Pocket sized</th>
+                  <td class="is-movo">
+                    <span class="mark mark--yes" aria-hidden="true">&#10003;</span>
+                    <span class="visually-hidden">Yes</span>
+                  </td>
+                  <td>
+                    <span class="mark mark--no" aria-hidden="true">&#8211;</span>
+                    <span class="visually-hidden">No</span>
+                  </td>
+                  <td>
+                    <span class="mark mark--part" aria-hidden="true">~</span>
+                    <span class="visually-hidden">Partly — the sticks are, the water is not</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Use anywhere</th>
+                  <td class="is-movo">
+                    <span class="mark mark--yes" aria-hidden="true">&#10003;</span>
+                    <span class="visually-hidden">Yes</span>
+                  </td>
+                  <td>
+                    <span class="mark mark--part" aria-hidden="true">~</span>
+                    <span class="visually-hidden">Partly — only if you are carrying it</span>
+                  </td>
+                  <td>
+                    <span class="mark mark--no" aria-hidden="true">&#8211;</span>
+                    <span class="visually-hidden">No — needs water</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="compare__note">
+            This is a comparison of convenience, not of hydration. Keep drinking
+            water — MOVO is designed to travel with you, not to replace it.
+          </p>
         </div>
-        <img
-          class="hero__wave"
-          src="assets/wave.svg"
-          alt=""
-          aria-hidden="true"
-        />
       </section>
 
-      <section class="intro" id="intro" aria-labelledby="intro-title">
-        <div class="container intro__inner">
-          <h2 id="intro-title" class="section-title">A new way to hydrate</h2>
-          <!-- TODO: replace with brand copy -->
-          <p class="intro__lede">
-            MOVO is a fresh, modern way to stay hydrated on the go. Every pouch
-            delivers a clean dose of electrolytes&mdash;no sugar, no bottle, no
-            slowing down. Built for daily wellness, peak performance, and
-            everything in between. <em>(Placeholder copy &mdash; replace with
-            your real story.)</em>
+      <section class="section section--mist" aria-labelledby="inside-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Per pouch</p>
+            <h2 id="inside-title" class="section-title">What's in one MOVO</h2>
+            <p>Four actives, nothing hidden. Same in Mint and Citrus.</p>
+          </div>
+
+          <ul class="stat-row" role="list">
+            <li class="stat">
+              <span class="stat__value">250<span class="stat__unit">mg</span></span>
+              <span class="stat__label">Sodium</span>
+            </li>
+            <li class="stat">
+              <span class="stat__value">75<span class="stat__unit">mg</span></span>
+              <span class="stat__label">Potassium</span>
+            </li>
+            <li class="stat">
+              <span class="stat__value">15<span class="stat__unit">mg</span></span>
+              <span class="stat__label">Magnesium</span>
+            </li>
+            <li class="stat">
+              <span class="stat__value">100<span class="stat__unit">mg</span></span>
+              <span class="stat__label">L-Taurine</span>
+            </li>
+            <li class="stat stat--highlight">
+              <span class="stat__value">0<span class="stat__unit">g</span></span>
+              <span class="stat__label">Sugar</span>
+            </li>
+          </ul>
+
+          <p class="section-cta">
+            <a class="btn btn--ghost" href="product.html#supplement-facts">
+              See full supplement facts
+            </a>
           </p>
-          <ul class="intro__features" role="list">
-            <li>
-              <a class="intro__feature-link" href="information.html">
-                <span class="feature__icon" aria-hidden="true">&#9889;</span>
-                <h3>Pocket-ready</h3>
-                <p>Hydration that fits anywhere a phone does.</p>
-              </a>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="usecases-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Anywhere you are</p>
+            <h2 id="usecases-title" class="section-title">
+              MOVO goes where you go
+            </h2>
+            <p>If you can take your keys, you can take your electrolytes.</p>
+          </div>
+
+          <ul class="usecases" role="list">
+            <li class="usecase">
+              <span class="usecase__icon" aria-hidden="true">&#127947;</span>
+              <span class="usecase__label">Gym</span>
             </li>
-            <li>
-              <a class="intro__feature-link" href="information.html">
-                <span class="feature__icon" aria-hidden="true">&#9889;</span>
-                <h3>Fast absorption</h3>
-                <p>Designed for quick uptake, anytime you need it.</p>
-              </a>
+            <li class="usecase">
+              <span class="usecase__icon" aria-hidden="true">&#9992;</span>
+              <span class="usecase__label">Travel</span>
             </li>
-            <li>
-              <a class="intro__feature-link" href="information.html">
-                <span class="feature__icon" aria-hidden="true">&#9889;</span>
-                <h3>Specialized ingredients</h3>
-                <p>Electrolytes and supporting ingredients selected for clean daily hydration.</p>
-              </a>
+            <li class="usecase">
+              <span class="usecase__icon" aria-hidden="true">&#127939;</span>
+              <span class="usecase__label">Running</span>
+            </li>
+            <li class="usecase">
+              <span class="usecase__icon" aria-hidden="true">&#9917;</span>
+              <span class="usecase__label">Sports</span>
+            </li>
+            <li class="usecase">
+              <span class="usecase__icon" aria-hidden="true">&#9728;</span>
+              <span class="usecase__label">Heat</span>
+            </li>
+            <li class="usecase">
+              <span class="usecase__icon" aria-hidden="true">&#128663;</span>
+              <span class="usecase__label">Road trips</span>
+            </li>
+            <li class="usecase">
+              <span class="usecase__icon" aria-hidden="true">&#128188;</span>
+              <span class="usecase__label">Work</span>
+            </li>
+            <li class="usecase">
+              <span class="usecase__icon" aria-hidden="true">&#127881;</span>
+              <span class="usecase__label">Festivals</span>
             </li>
           </ul>
         </div>
       </section>
 
+      <section class="section section--soft origin" aria-labelledby="origin-title">
+        <div class="container origin__inner">
+          <div class="origin__copy">
+            <p class="eyebrow">Origin</p>
+            <h2 id="origin-title" class="origin__title">
+              Developed in Denmark. Built for everywhere.
+            </h2>
+            <p>
+              MOVO was formulated and is produced in Denmark, in food-grade
+              facilities held to EU standards. Scandinavian precision, applied
+              to something as simple as staying hydrated.
+            </p>
+            <ul class="origin__points" role="list">
+              <li>Formulated and blended in Denmark</li>
+              <li>Produced under EU food-safety standards</li>
+              <li>Every batch measured, mixed, and checked</li>
+            </ul>
+            <p class="origin__cta">
+              <a class="btn btn--ghost" href="story.html">Read our story</a>
+            </p>
+          </div>
+          <div class="origin__media">
+            <img
+              src="assets/denmark-lab.jpg"
+              alt="A scientist weighing minerals on a precision scale in a bright Danish lab"
+              width="1152"
+              height="864"
+              loading="lazy"
+            />
+            <img
+              src="assets/denmark-production.jpg"
+              alt="MOVO tins moving along a stainless steel production line"
+              width="1152"
+              height="864"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="waitlist" id="waitlist" aria-labelledby="waitlist-title">
+        <div class="container">
+          <div class="waitlist__inner">
+            <p class="eyebrow">Not on sale yet</p>
+            <h2 id="waitlist-title" class="waitlist__title">MOVO is coming.</h2>
+            <p class="waitlist__sub">Get early access + launch pricing.</p>
+
+            <!-- TODO: set WAITLIST_ENDPOINT in js/waitlist.js once the email
+                 provider is chosen. Until then this validates and confirms
+                 client-side only. -->
+            <form
+              class="waitlist-form"
+              id="waitlist-form"
+              data-success="waitlist-success"
+              novalidate
+            >
+              <div class="form-field">
+                <label for="waitlist-email">Email address</label>
+                <input
+                  id="waitlist-email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  placeholder="you@example.com"
+                  required
+                />
+                <p class="form-error" data-error-for="waitlist-email"></p>
+              </div>
+              <button class="btn btn--primary btn--lg" type="submit">
+                Join the MOVO list
+              </button>
+            </form>
+
+            <p
+              class="form-success"
+              id="waitlist-success"
+              role="status"
+              aria-live="polite"
+              hidden
+            >
+              You're on the list. We'll email you before launch.
+            </p>
+
+            <p class="waitlist__scarcity">
+              Be one of the first 1,000 to try MOVO.
+            </p>
+            <p class="waitlist__privacy">
+              One launch email, then occasional updates. Unsubscribe anytime.
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
@@ -170,9 +567,12 @@
         </a>
         <nav aria-label="Footer">
           <ul>
-            <li><a href="index.html">Home</a></li>
             <li><a href="product.html">Shop</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
             <li><a href="information.html">Ingredients</a></li>
+            <li><a href="science.html">The Science</a></li>
+            <li><a href="story.html">Our Story</a></li>
+            <li><a href="faq.html">FAQ</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
@@ -180,8 +580,18 @@
           &copy; <span id="year">2026</span> MOVO. All rights reserved.
         </p>
       </div>
+      <div class="container site-footer__note">
+        <p class="site-footer__warning">
+          <strong>Contains xylitol.</strong> Keep away from dogs and other pets.
+        </p>
+        <p class="site-footer__disclaimer">
+          MOVO is a food supplement, not a medicine. It is not intended to
+          diagnose, treat, cure, or prevent any disease.
+        </p>
+      </div>
     </footer>
 
     <script src="js/nav.js" defer></script>
+    <script src="js/waitlist.js" defer></script>
   </body>
 </html>

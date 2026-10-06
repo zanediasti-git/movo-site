@@ -1,0 +1,32 @@
+/* Our Story — values grid */
+
+.values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.value {
+  padding: 1.75rem 1.5rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.value h3 {
+  margin: 0 0 0.5rem;
+  color: var(--brand-darker);
+}
+
+.value p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.97rem;
+}
+
+@media (max-width: 880px) {
+  .values {
+    grid-template-columns: 1fr;
+  }
+}

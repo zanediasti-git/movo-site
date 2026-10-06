@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="MOVO Electrolyte Pouch 1.0 — coming soon. Clean hydration in a pocket-sized pouch."
+      content="MOVO Electrolyte Pouches in Mint and Citrus. 18 pouches per tin, zero sugar, zero nicotine. Join the waitlist for launch."
     />
-    <title>Electrolyte Pouch 1.0 | MOVO</title>
+    <title>MOVO Electrolyte Pouches | MOVO</title>
     <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,7 +18,11 @@
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/compare.css" />
+    <link rel="stylesheet" href="css/waitlist.css" />
     <link rel="stylesheet" href="css/product.css" />
+    <link rel="stylesheet" href="css/bundles.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -40,10 +44,11 @@
         </button>
         <nav class="primary-nav" id="primary-nav" aria-label="Primary">
           <ul>
-            <li><a href="index.html">Home</a></li>
             <li><a href="product.html" aria-current="page">Shop</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
             <li><a href="information.html">Ingredients</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="science.html">The Science</a></li>
+            <li><a href="story.html">Our Story</a></li>
           </ul>
         </nav>
       </div>
@@ -58,25 +63,27 @@
               id="product-image"
               class="product__image"
               src="assets/Pouch-m.jpg"
-              alt="MOVO Mint Electrolyte Pouch 1.0 tin"
+              alt="MOVO Mint electrolyte pouch tin"
+              width="500"
+              height="500"
             />
           </div>
 
           <div class="product__details">
             <p class="eyebrow">Debut drop</p>
             <h1 id="product-title" class="product__title">
-              Electrolyte Pouch 1.0
+              MOVO Electrolyte Pouches
             </h1>
+
             <p class="product__price">
-              <span class="product__price-amount">$—</span>
+              <span class="product__price-amount">$&mdash;</span>
               <span class="product__price-note">Pricing announced soon</span>
             </p>
 
-            <!-- TODO: replace with real product copy -->
             <p class="product__desc">
-              Electrolyte pouches built for clean, on-the-go hydration. Slip a
-              pouch under your lip and keep moving&mdash;no bottle, no sugar, no
-              slowing down. <em>(Placeholder description.)</em>
+              Zero-sugar electrolyte pouches made for life on the move. Slip one
+              between lip and gum and keep going &mdash; no bottle, no shaker,
+              no waiting for powder to dissolve.
             </p>
 
             <fieldset class="product__flavors">
@@ -87,8 +94,7 @@
                   name="flavor"
                   value="mint"
                   data-image="assets/Pouch-m.jpg"
-                  data-alt="MOVO Mint Electrolyte Pouch 1.0 tin"
-                  data-checkout-url="https://buy.stripe.com/8x26oG9sY3waab01he0Ny01"
+                  data-alt="MOVO Mint electrolyte pouch tin"
                   checked
                 />
                 <span>Mint</span>
@@ -99,12 +105,16 @@
                   name="flavor"
                   value="citrus"
                   data-image="assets/Pouch-c.jpg"
-                  data-alt="MOVO Citrus Electrolyte Pouch 1.0 tin"
-                  data-checkout-url="https://buy.stripe.com/eVq6oG0Ws6Im3MC1he0Ny00"
+                  data-alt="MOVO Citrus electrolyte pouch tin"
                 />
                 <span>Citrus</span>
               </label>
             </fieldset>
+
+            <p class="tin-count tin-count--lg">
+              <span class="tin-count__num">18</span>
+              <span class="tin-count__label">pouches per tin</span>
+            </p>
 
             <dl class="product__specs">
               <div>
@@ -117,33 +127,252 @@
               </div>
               <div>
                 <dt>Sugar</dt>
-                <dd>0g</dd>
+                <dd>0 g</dd>
               </div>
               <div>
-                <dt>Ingredients</dt>
-                <dd>
-                  Sodium, Potassium, Magnesium, L Taurine, MCC, Xylitol,
-                  Menthol, &amp; Natural Flavors.
-                </dd>
+                <dt>Nicotine</dt>
+                <dd>None</dd>
               </div>
             </dl>
 
             <div class="product__actions">
-              <a
-                class="btn btn--primary btn--lg"
-                id="buy-now"
-                href="https://buy.stripe.com/8x26oG9sY3waab01he0Ny01"
-              >
-                Buy Now
+              <a class="btn btn--primary btn--lg" href="#waitlist">
+                Join the waitlist
               </a>
               <p class="product__notify">
-                Want first dibs?
-                <a href="contact.html">Notify me when it drops &rarr;</a>
+                MOVO is not on sale yet. Join the list for early access and
+                launch pricing.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section"
+        id="supplement-facts"
+        aria-labelledby="facts-title"
+      >
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Per pouch</p>
+            <h2 id="facts-title" class="section-title">What's in one MOVO</h2>
+            <p>Four actives, nothing hidden. Same in Mint and Citrus.</p>
+          </div>
+
+          <ul class="stat-row" role="list">
+            <li class="stat">
+              <span class="stat__value">250<span class="stat__unit">mg</span></span>
+              <span class="stat__label">Sodium</span>
+            </li>
+            <li class="stat">
+              <span class="stat__value">75<span class="stat__unit">mg</span></span>
+              <span class="stat__label">Potassium</span>
+            </li>
+            <li class="stat">
+              <span class="stat__value">15<span class="stat__unit">mg</span></span>
+              <span class="stat__label">Magnesium</span>
+            </li>
+            <li class="stat">
+              <span class="stat__value">100<span class="stat__unit">mg</span></span>
+              <span class="stat__label">L-Taurine</span>
+            </li>
+            <li class="stat stat--highlight">
+              <span class="stat__value">0<span class="stat__unit">g</span></span>
+              <span class="stat__label">Sugar</span>
+            </li>
+          </ul>
+
+          <div class="facts-layout">
+            <div class="facts">
+              <h3 class="facts__title">Supplement Facts</h3>
+              <p class="facts__serving">
+                <span>Serving size</span>
+                <span>1 pouch</span>
+              </p>
+              <p class="facts__serving">
+                <span>Servings per tin</span>
+                <span>18</span>
+              </p>
+              <div class="facts__rule"></div>
+              <table class="facts-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Nutrient</th>
+                    <th scope="col">Amount per pouch</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Sodium</th>
+                    <td>250 mg</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Potassium</th>
+                    <td>75 mg</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Magnesium</th>
+                    <td>15 mg</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">L-Taurine</th>
+                    <td>100 mg</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Total sugars</th>
+                    <td>0 g</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Calories</th>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Caffeine</th>
+                    <td>0 mg</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Nicotine</th>
+                    <td>0 mg</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="facts__rule facts__rule--thin"></div>
+              <p class="facts__footnote">
+                <strong>Other ingredients:</strong> microcrystalline cellulose
+                (MCC), xylitol, menthol, natural flavors.
+              </p>
+              <p class="facts__footnote">
+                Daily Values have not been established for L-taurine. Values are
+                per single pouch.
               </p>
             </div>
 
-            <p class="product__back">
-              <a href="index.html">&larr; Back to home</a>
+            <div class="facts-aside">
+              <h3 class="facts-aside__title">Good to know</h3>
+              <ul class="facts-aside__list" role="list">
+                <li>Nothing to mix and nothing to carry but the tin.</li>
+                <li>
+                  Xylitol is there for taste, not sugar &mdash; it contributes
+                  0 g of sugar.
+                </li>
+                <li>
+                  MOVO tops up electrolytes. It does not replace drinking
+                  water.
+                </li>
+              </ul>
+
+              <div class="warning-note">
+                <span class="warning-note__icon" aria-hidden="true">&#9888;</span>
+                <p>
+                  <strong>Contains xylitol.</strong> Keep away from dogs and
+                  other pets. Xylitol is toxic to dogs even in small amounts.
+                </p>
+              </div>
+
+              <p class="facts-aside__cta">
+                <a class="btn btn--ghost" href="information.html">
+                  Explore each ingredient
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--soft" aria-labelledby="bundles-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">At launch</p>
+            <h2 id="bundles-title" class="section-title">
+              Buy one tin, or stock up
+            </h2>
+            <p>
+              Bundle pricing goes live when MOVO launches. Nothing is for sale
+              yet &mdash; join the waitlist and you'll get first access.
+            </p>
+          </div>
+
+          <ul class="bundles" role="list">
+            <li class="bundle">
+              <h3 class="bundle__title">1 Tin</h3>
+              <p class="bundle__meta">18 pouches</p>
+              <p class="bundle__price">$&mdash;</p>
+              <span class="bundle__tag">At launch</span>
+            </li>
+            <li class="bundle">
+              <h3 class="bundle__title">3-Pack</h3>
+              <p class="bundle__meta">54 pouches</p>
+              <p class="bundle__price">$&mdash;</p>
+              <span class="bundle__save">Save 10%</span>
+              <span class="bundle__tag">At launch</span>
+            </li>
+            <li class="bundle bundle--featured">
+              <h3 class="bundle__title">6-Pack</h3>
+              <p class="bundle__meta">108 pouches</p>
+              <p class="bundle__price">$&mdash;</p>
+              <span class="bundle__save">Save 15%</span>
+              <span class="bundle__tag">At launch</span>
+            </li>
+            <li class="bundle">
+              <h3 class="bundle__title">Subscribe &amp; Save</h3>
+              <p class="bundle__meta">Delivered monthly</p>
+              <p class="bundle__price">$&mdash;</p>
+              <span class="bundle__save">Save 15%</span>
+              <span class="bundle__tag">At launch</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="waitlist" id="waitlist" aria-labelledby="waitlist-title">
+        <div class="container">
+          <div class="waitlist__inner">
+            <p class="eyebrow">Not on sale yet</p>
+            <h2 id="waitlist-title" class="waitlist__title">MOVO is coming.</h2>
+            <p class="waitlist__sub">Get early access + launch pricing.</p>
+
+            <!-- TODO: set WAITLIST_ENDPOINT in js/waitlist.js once the email
+                 provider is chosen. Until then this validates and confirms
+                 client-side only. -->
+            <form
+              class="waitlist-form"
+              id="product-waitlist-form"
+              data-success="product-waitlist-success"
+              novalidate
+            >
+              <div class="form-field">
+                <label for="product-waitlist-email">Email address</label>
+                <input
+                  id="product-waitlist-email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  placeholder="you@example.com"
+                  required
+                />
+                <p class="form-error" data-error-for="product-waitlist-email"></p>
+              </div>
+              <button class="btn btn--primary btn--lg" type="submit">
+                Join the MOVO list
+              </button>
+            </form>
+
+            <p
+              class="form-success"
+              id="product-waitlist-success"
+              role="status"
+              aria-live="polite"
+              hidden
+            >
+              You're on the list. We'll email you before launch.
+            </p>
+
+            <p class="waitlist__scarcity">
+              Be one of the first 1,000 to try MOVO.
+            </p>
+            <p class="waitlist__privacy">
+              One launch email, then occasional updates. Unsubscribe anytime.
             </p>
           </div>
         </div>
@@ -158,9 +387,12 @@
         </a>
         <nav aria-label="Footer">
           <ul>
-            <li><a href="index.html">Home</a></li>
             <li><a href="product.html">Shop</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
             <li><a href="information.html">Ingredients</a></li>
+            <li><a href="science.html">The Science</a></li>
+            <li><a href="story.html">Our Story</a></li>
+            <li><a href="faq.html">FAQ</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
@@ -168,9 +400,19 @@
           &copy; <span id="year">2026</span> MOVO. All rights reserved.
         </p>
       </div>
+      <div class="container site-footer__note">
+        <p class="site-footer__warning">
+          <strong>Contains xylitol.</strong> Keep away from dogs and other pets.
+        </p>
+        <p class="site-footer__disclaimer">
+          MOVO is a food supplement, not a medicine. It is not intended to
+          diagnose, treat, cure, or prevent any disease.
+        </p>
+      </div>
     </footer>
 
     <script src="js/nav.js" defer></script>
     <script src="js/product.js" defer></script>
+    <script src="js/waitlist.js" defer></script>
   </body>
 </html>

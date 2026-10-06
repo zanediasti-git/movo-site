@@ -1,0 +1,107 @@
+/* The Science page */
+
+.science-hero {
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+  background: linear-gradient(180deg, #ffffff 0%, var(--bg-soft) 100%);
+}
+
+.science-hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+}
+
+.science-hero__copy {
+  max-width: 48ch;
+}
+
+.science-hero__img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 880px) {
+  .science-hero__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Prose blocks */
+
+.prose {
+  max-width: 68ch;
+}
+
+.prose p {
+  color: var(--ink-soft);
+  font-size: clamp(1rem, 0.5vw + 0.92rem, 1.1rem);
+}
+
+/* Active ingredient cards */
+
+.actives {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.active-card {
+  padding: 1.6rem 1.4rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.active-card__dose {
+  margin: 0 0 0.35rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--brand-deep);
+}
+
+.active-card h3 {
+  margin: 0 0 0.5rem;
+}
+
+.active-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+/* Honest-framing callout */
+
+.science-note {
+  margin: 2.5rem 0;
+  padding: 1.5rem 1.65rem;
+  background: var(--bg-soft);
+  border-left: 4px solid var(--brand);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.science-note h3 {
+  margin: 0 0 0.5rem;
+}
+
+.science-note p {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+@media (max-width: 900px) {
+  .actives {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .actives {
+    grid-template-columns: 1fr;
+  }
+}

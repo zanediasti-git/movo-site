@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Learn what each MOVO Electrolyte Pouch 1.0 component is designed to support."
+      content="What goes into MOVO Electrolyte Pouches: sodium, potassium, magnesium and L-taurine, with the amount in every pouch."
     />
-    <title>Information | MOVO</title>
+    <title>Ingredients | MOVO</title>
     <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/compare.css" />
     <link rel="stylesheet" href="css/information.css" />
   </head>
   <body>
@@ -40,10 +42,11 @@
         </button>
         <nav class="primary-nav" id="primary-nav" aria-label="Primary">
           <ul>
-            <li><a href="index.html">Home</a></li>
             <li><a href="product.html">Shop</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
             <li><a href="information.html" aria-current="page">Ingredients</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="science.html">The Science</a></li>
+            <li><a href="story.html">Our Story</a></li>
           </ul>
         </nav>
       </div>
@@ -57,10 +60,10 @@
             A closer look at every component.
           </h1>
           <p class="info-hero__lede">
-            This page will explain how each electrolyte and supporting ingredient
-            in MOVO Electrolyte Pouch 1.0 is designed to work in the body.
+            Four actives, and the amount of each in every MOVO Electrolyte
+            Pouch. Tap any component to see how it works in the body.
           </p>
-          <a class="btn btn--primary" href="product.html">View the pouch</a>
+          <a class="btn btn--primary" href="product.html">View the product</a>
         </div>
       </section>
 
@@ -72,8 +75,7 @@
               Electrolytes and supporting ingredients
             </h2>
             <p>
-              Full explanations are coming soon. For now, this layout previews
-              where each component breakdown will live.
+              Doses shown are per pouch and are identical in Mint and Citrus.
             </p>
           </div>
 
@@ -82,6 +84,7 @@
               <a class="component-card" href="sodium.html">
                 <span class="component-card__label">Electrolyte</span>
                 <h3>Sodium</h3>
+                <p class="component-card__dose">250 mg per pouch</p>
                 <p>
                   The electrolyte you lose most in sweat. Sodium keeps fluid
                   where your muscles need it and helps nerves fire on time.
@@ -93,6 +96,7 @@
               <a class="component-card" href="potassium.html">
                 <span class="component-card__label">Electrolyte</span>
                 <h3>Potassium</h3>
+                <p class="component-card__dose">75 mg per pouch</p>
                 <p>
                   Sodium's partner. Potassium works inside your cells to keep
                   muscles contracting and relaxing smoothly.
@@ -104,6 +108,7 @@
               <a class="component-card" href="magnesium.html">
                 <span class="component-card__label">Electrolyte</span>
                 <h3>Magnesium</h3>
+                <p class="component-card__dose">15 mg per pouch</p>
                 <p>
                   The relaxation mineral. Magnesium helps muscles release after
                   they contract and supports the energy systems that keep you
@@ -115,7 +120,8 @@
             <li>
               <a class="component-card" href="l-taurine.html">
                 <span class="component-card__label">Amino acid</span>
-                <h3>L Taurine</h3>
+                <h3>L-Taurine</h3>
+                <p class="component-card__dose">100 mg per pouch</p>
                 <p>
                   An amino acid concentrated in your muscles. Taurine supports
                   muscle function, hydration at the cellular level, and
@@ -125,6 +131,31 @@
               </a>
             </li>
           </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="other-title">
+        <div class="container prose-narrow">
+          <h2 id="other-title" class="section-title">Other ingredients</h2>
+          <p>
+            Alongside the four actives, each pouch contains microcrystalline
+            cellulose (MCC) as the carrier, xylitol and menthol for taste, and
+            natural flavors. No sugar, no caffeine, no nicotine.
+          </p>
+
+          <div class="warning-note">
+            <span class="warning-note__icon" aria-hidden="true">&#9888;</span>
+            <p>
+              <strong>Contains xylitol.</strong> Keep away from dogs and other
+              pets. Xylitol is toxic to dogs even in small amounts.
+            </p>
+          </div>
+
+          <p class="section-cta-left">
+            <a class="btn btn--ghost" href="product.html#supplement-facts">
+              See full supplement facts
+            </a>
+          </p>
         </div>
       </section>
 
@@ -143,14 +174,26 @@
         </a>
         <nav aria-label="Footer">
           <ul>
-            <li><a href="index.html">Home</a></li>
             <li><a href="product.html">Shop</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
             <li><a href="information.html">Ingredients</a></li>
+            <li><a href="science.html">The Science</a></li>
+            <li><a href="story.html">Our Story</a></li>
+            <li><a href="faq.html">FAQ</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
         <p class="site-footer__legal">
           &copy; <span id="year">2026</span> MOVO. All rights reserved.
+        </p>
+      </div>
+      <div class="container site-footer__note">
+        <p class="site-footer__warning">
+          <strong>Contains xylitol.</strong> Keep away from dogs and other pets.
+        </p>
+        <p class="site-footer__disclaimer">
+          MOVO is a food supplement, not a medicine. It is not intended to
+          diagnose, treat, cure, or prevent any disease.
         </p>
       </div>
     </footer>
