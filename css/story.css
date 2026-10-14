@@ -1,3 +1,57 @@
+/* Our Story — photo rows beside the copy */
+
+.story-origin {
+  padding-top: 0;
+}
+
+.story-block {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+.story-block + .story-block {
+  margin-top: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.story-block__copy {
+  max-width: 54ch;
+}
+
+.story-block__copy p {
+  color: var(--ink-soft);
+}
+
+.story-block__media {
+  display: grid;
+  gap: 1rem;
+}
+
+.story-block__media img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+}
+
+.story-block__media--pair {
+  grid-template-columns: 1fr 1fr;
+}
+
+.story-block__media--pair img,
+.story-block__media--single img {
+  aspect-ratio: 3 / 4;
+}
+
+@media (max-width: 640px) {
+  .story-block {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Our Story — values grid */
 
 .values {
