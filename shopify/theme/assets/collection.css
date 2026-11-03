@@ -1,0 +1,9 @@
+.collection .section-head {
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.collection__empty {
+  padding: 2rem;
+  border: 1px dashed var(--c-line-strong);
+  color: var(--c-text-mute);
+}

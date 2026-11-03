@@ -1,0 +1,102 @@
+{%- assign menu = linklists[section.settings.menu] -%}
+
+<header class="header" id="site-header" data-sticky="{{ section.settings.sticky }}">
+  <div class="container header__inner">
+    <button
+      class="btn-icon header__toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="header-nav"
+      data-nav-toggle
+    >
+      <span class="visually-hidden">{{ 'general.a11y.menu' | t }}</span>
+      {% render 'icon', name: 'menu' %}
+    </button>
+
+    <a class="header__brand" href="{{ routes.root_url }}">
+      {%- if settings.logo != blank -%}
+        <img
+          src="{{ settings.logo | image_url: width: 400 }}"
+          alt="{{ shop.name }}"
+          width="{{ settings.logo_width }}"
+          style="width: {{ settings.logo_width }}px"
+        >
+      {%- else -%}
+        <span class="header__wordmark">MOVO<span class="header__wordmark-boost">Boost</span></span>
+      {%- endif -%}
+    </a>
+
+    <nav class="header__nav" id="header-nav" aria-label="Primary">
+      <ul class="header__links" role="list">
+        {%- for link in menu.links -%}
+          <li>
+            <a
+              class="header__link"
+              href="{{ link.url }}"
+              {% if link.active %}aria-current="page"{% endif %}
+            >
+              {{ link.title }}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      <a class="btn btn--primary btn--block header__nav-cta" href="{{ section.settings.cta_link }}">
+        <span>{{ section.settings.cta_text }}</span>
+      </a>
+    </nav>
+
+    <div class="header__actions">
+      <a class="btn-icon header__search" href="{{ routes.search_url }}">
+        <span class="visually-hidden">{{ 'general.search.title' | t }}</span>
+        {% render 'icon', name: 'search' %}
+      </a>
+
+      <a class="btn btn--primary btn--sm header__cta" href="{{ section.settings.cta_link }}">
+        <span>{{ section.settings.cta_text }}</span>
+      </a>
+
+      <a class="btn-icon header__cart" href="{{ routes.cart_url }}" data-cart-open>
+        <span class="visually-hidden">{{ 'cart.general.title' | t }}</span>
+        {% render 'icon', name: 'cart' %}
+        <span class="header__count{% if cart.item_count == 0 %} is-empty{% endif %}" data-cart-count>
+          {{ cart.item_count }}
+        </span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="header__scrim" data-nav-scrim hidden></div>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky",
+      "label": "Stick to top on scroll",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button text",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link",
+      "default": "/collections/pouches"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,56 @@
+.newsletter {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(90% 120% at 50% 0%, color-mix(in srgb, var(--c-accent) 42%, transparent), transparent 65%),
+    var(--c-surface);
+  border-block: 1px solid var(--c-line);
+  text-align: center;
+}
+
+.newsletter__inner {
+  position: relative;
+}
+
+.newsletter__inner .eyebrow {
+  justify-content: center;
+}
+
+.newsletter__lede {
+  margin-inline: auto;
+  margin-bottom: 1.75rem;
+}
+
+.newsletter__field {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: 30rem;
+  margin-inline: auto;
+}
+
+.newsletter__field input {
+  flex: 1 1 14rem;
+  min-width: 0;
+  padding: 0.95rem 1.1rem;
+  border: 2px solid var(--c-line-strong);
+  background: var(--c-base);
+  color: var(--c-text);
+  font-size: var(--fs-body);
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.newsletter__field input::placeholder {
+  color: var(--c-text-mute);
+}
+
+.newsletter__field input:focus {
+  outline: none;
+  border-color: var(--c-volt);
+}
+
+.newsletter__note {
+  margin-top: 1rem;
+  font-size: var(--fs-xs);
+  color: var(--c-text-mute);
+}

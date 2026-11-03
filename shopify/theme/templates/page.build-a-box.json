@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "builder": {
+      "type": "bundle-builder",
+      "settings": {
+        "collection": "pouches",
+        "box_size": 6,
+        "box_label": "Mixed 6-pack",
+        "eyebrow": "Mix your flavors",
+        "heading": "Build a mixed box",
+        "body": "Six tins, any split of Mint and Citrus. Same electrolytes in both — pick on taste.",
+        "note": "Mixed boxes add one tin at a time, so they use the single-tin price. Same-flavor 3-packs and 6-packs save more."
+      }
+    },
+    "compare": {
+      "type": "rich-text",
+      "settings": {
+        "background": "surface",
+        "source": "section",
+        "align": "center",
+        "heading": "Want one flavor, not a mix?",
+        "body": "<p>A same-flavor 6-pack is $71.40 instead of six loose tins. Subscriptions take another 15% off.</p>",
+        "cta_text": "Shop Mint",
+        "cta_link": "/products/movo-boost-mint",
+        "cta2_text": "Shop Citrus",
+        "cta2_link": "/products/movo-boost-citrus"
+      }
+    }
+  },
+  "order": ["builder", "compare"]
+}

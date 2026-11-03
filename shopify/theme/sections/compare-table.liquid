@@ -1,0 +1,170 @@
+{{ 'compare.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  Mark values with 'yes', 'no' or 'part' in each block; the section turns those
+  into the check / dash / tilde marks and a screen-reader label.
+{%- endcomment -%}
+
+<section class="section compare">
+  <div class="container">
+    <div class="section-head reveal">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="display-3">{{ section.settings.heading }}</h2>
+      {%- if section.settings.body != blank -%}
+        <p>{{ section.settings.body }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="compare__scroll reveal">
+      <table class="compare-table">
+        <caption class="visually-hidden">{{ section.settings.caption }}</caption>
+        <thead>
+          <tr>
+            <th scope="col"><span class="visually-hidden">Feature</span></th>
+            <th scope="col" class="is-us">{{ section.settings.col_us }}</th>
+            <th scope="col">{{ section.settings.col_b }}</th>
+            <th scope="col">{{ section.settings.col_c }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%- for block in section.blocks -%}
+            <tr>
+              <th scope="row">{{ block.settings.feature }}</th>
+              <td class="is-us">{% render 'compare-mark', value: block.settings.us, note: block.settings.us_note %}</td>
+              <td>{% render 'compare-mark', value: block.settings.b, note: block.settings.b_note %}</td>
+              <td>{% render 'compare-mark', value: block.settings.c, note: block.settings.c_note %}</td>
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+    </div>
+
+    {%- if section.settings.note != blank -%}
+      <p class="compare__note">{{ section.settings.note }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Comparison table",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why MOVO Boost" },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Same electrolytes. Far less hassle."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body",
+      "default": "Sports drinks and powders work. They just ask you to carry a bottle, find water, and stop what you are doing. MOVO Boost is about the format, not the formula."
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "Table caption (screen readers)",
+      "default": "Convenience comparison between MOVO Boost pouches, bottled sports drinks and powder sticks"
+    },
+    { "type": "text", "id": "col_us", "label": "Column 1", "default": "MOVO Boost" },
+    { "type": "text", "id": "col_b", "label": "Column 2", "default": "Sports drink" },
+    { "type": "text", "id": "col_c", "label": "Column 3", "default": "Powder" },
+    {
+      "type": "textarea",
+      "id": "note",
+      "label": "Footnote",
+      "default": "This compares convenience, not hydration. Keep drinking water \u2014 MOVO Boost is designed to travel with you, not to replace it."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Row",
+      "settings": [
+        { "type": "text", "id": "feature", "label": "Feature", "default": "Electrolytes" },
+        {
+          "type": "select",
+          "id": "us",
+          "label": "MOVO Boost",
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "part", "label": "Partly" },
+            { "value": "no", "label": "No" }
+          ],
+          "default": "yes"
+        },
+        { "type": "text", "id": "us_note", "label": "MOVO Boost note (screen readers)" },
+        {
+          "type": "select",
+          "id": "b",
+          "label": "Column 2",
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "part", "label": "Partly" },
+            { "value": "no", "label": "No" }
+          ],
+          "default": "yes"
+        },
+        { "type": "text", "id": "b_note", "label": "Column 2 note (screen readers)" },
+        {
+          "type": "select",
+          "id": "c",
+          "label": "Column 3",
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "part", "label": "Partly" },
+            { "value": "no", "label": "No" }
+          ],
+          "default": "yes"
+        },
+        { "type": "text", "id": "c_note", "label": "Column 3 note (screen readers)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison table",
+      "blocks": [
+        { "type": "row", "settings": { "feature": "Electrolytes", "us": "yes", "b": "yes", "c": "yes" } },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Zero sugar",
+            "us": "yes",
+            "b": "no",
+            "c": "part",
+            "c_note": "Varies by brand"
+          }
+        },
+        { "type": "row", "settings": { "feature": "No bottle", "us": "yes", "b": "no", "c": "no" } },
+        { "type": "row", "settings": { "feature": "No mixing", "us": "yes", "b": "yes", "c": "no" } },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Pocket sized",
+            "us": "yes",
+            "b": "no",
+            "c": "part",
+            "c_note": "The sticks are, the water is not"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Use anywhere",
+            "us": "yes",
+            "b": "part",
+            "b_note": "Only if you are carrying it",
+            "c": "no",
+            "c_note": "Needs water"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

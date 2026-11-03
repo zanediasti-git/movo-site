@@ -1,0 +1,117 @@
+{{ 'contact.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  Shopify's own contact form: submissions arrive at the store's customer
+  support email, so there is no third-party endpoint to wire up.
+{%- endcomment -%}
+
+<section class="section contact">
+  <div class="container contact__grid">
+    <div class="contact__intro reveal">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+
+      <h1 class="display-3">{{ section.settings.heading }}</h1>
+
+      {%- if section.settings.body != blank -%}
+        <div class="prose contact__body">{{ section.settings.body }}</div>
+      {%- endif -%}
+
+      <ul class="contact__channels" role="list">
+        {%- if section.settings.email != blank -%}
+          <li>
+            <span class="contact__channel-label">Email</span>
+            <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+          </li>
+        {%- endif -%}
+        {%- if settings.social_instagram != blank -%}
+          <li>
+            <span class="contact__channel-label">Instagram</span>
+            <a href="{{ settings.social_instagram }}" rel="noopener" target="_blank">
+              {{ section.settings.instagram_handle | default: 'Follow us' }}
+            </a>
+          </li>
+        {%- endif -%}
+      </ul>
+    </div>
+
+    <div class="contact__form-wrap reveal">
+      {% form 'contact', id: 'contact-form', class: 'cform' %}
+        {%- if form.posted_successfully? -%}
+          <p class="cform__success" role="status">{{ section.settings.success_message }}</p>
+        {%- endif -%}
+
+        {%- if form.errors -%}
+          <p class="cform__error" role="alert">
+            {{ form.errors | default_errors }}
+          </p>
+        {%- endif -%}
+
+        <div class="field">
+          <label for="contact-name">Name</label>
+          <input id="contact-name" type="text" name="contact[name]" autocomplete="name" required>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="contact-email">Email</label>
+            <input id="contact-email" type="email" name="contact[email]" autocomplete="email" required>
+          </div>
+
+          <div class="field">
+            <label for="contact-phone">Phone <span class="field__hint">optional</span></label>
+            <input id="contact-phone" type="tel" name="contact[phone]" autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="contact-subject">Subject</label>
+          <select id="contact-subject" name="contact[subject]" required>
+            <option value="" disabled selected>Choose a topic</option>
+            <option value="General question">General question</option>
+            <option value="Order support">Order support</option>
+            <option value="Subscriptions">Subscriptions</option>
+            <option value="Wholesale">Wholesale and teams</option>
+            <option value="Press">Press and media</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="contact-body">Message</label>
+          <textarea id="contact-body" name="contact[body]" rows="6" required></textarea>
+        </div>
+
+        <button class="btn btn--primary btn--lg" type="submit">
+          <span>{{ section.settings.button_text }}</span>
+        </button>
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact form",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Say hello" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Let\u2019s talk hydration." },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Questions, team orders or press \u2014 send a note and we will read it. Order and subscription questions get answered first.</p>"
+    },
+    { "type": "text", "id": "email", "label": "Email address", "default": "hello@movoboost.com" },
+    { "type": "text", "id": "instagram_handle", "label": "Instagram handle", "default": "@movoboost" },
+    { "type": "text", "id": "button_text", "label": "Button", "default": "Send message" },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thanks \u2014 we\u2019ll be in touch soon."
+    }
+  ]
+}
+{% endschema %}

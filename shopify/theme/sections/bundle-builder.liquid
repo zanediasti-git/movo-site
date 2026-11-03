@@ -1,0 +1,179 @@
+{{ 'bundle-builder.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  Mixed-flavor box builder. Adds one 1-Tin variant per picked tin, all sharing
+  a `_bundle` property so the cart can group them. Quantity math and the add
+  request live in bundle-builder.js.
+{%- endcomment -%}
+
+{%- assign source = section.settings.collection -%}
+{%- assign box_size = section.settings.box_size | default: 6 -%}
+
+<section class="section builder" data-bundle-builder>
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h1 class="display-2">{{ section.settings.heading }}</h1>
+      {%- if section.settings.body != blank -%}
+        <p>{{ section.settings.body }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if source.products.size > 0 -%}
+      <div class="builder__board">
+        <div class="builder__status reveal">
+          <p class="builder__remaining" data-bundle-remaining>
+            {{ 'sections.bundle_builder.remaining' | t: count: box_size }}
+          </p>
+
+          <ol class="builder__slots" data-bundle-slots aria-hidden="true">
+            {%- for i in (1..box_size) -%}
+              <li class="builder__slot"></li>
+            {%- endfor -%}
+          </ol>
+
+          <p class="builder__total">
+            <span data-bundle-total></span>
+            <span class="builder__total-note">{{ box_size }} tins</span>
+          </p>
+        </div>
+
+        <ul class="builder__flavors" role="list">
+          {%- for product in source.products -%}
+            {%- assign tin = product.selected_or_first_available_variant -%}
+            {%- for variant in product.variants -%}
+              {%- if variant.title == '1 Tin' -%}
+                {%- assign tin = variant -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- assign flavor = product.metafields.custom.flavor.value | downcase -%}
+
+            <li class="builder__flavor reveal" data-flavor="{{ flavor | default: 'brand' }}">
+              <div class="builder__media media-fill">
+                {%- if product.featured_image -%}
+                  <img
+                    src="{{ product.featured_image | image_url: width: 800 }}"
+                    alt="{{ product.featured_image.alt | escape }}"
+                    width="640"
+                    height="640"
+                  >
+                {%- endif -%}
+              </div>
+
+              <div class="builder__copy">
+                <h2 class="builder__name">{{ product.metafields.custom.flavor.value | default: product.title }}</h2>
+                {%- if product.metafields.custom.taste_note.value != blank -%}
+                  <p class="builder__note">{{ product.metafields.custom.taste_note.value }}</p>
+                {%- endif -%}
+
+                <div class="builder__stepper">
+                  <button
+                    class="builder__btn"
+                    type="button"
+                    data-bundle-delta="-1"
+                    data-bundle-handle="{{ product.handle }}"
+                    aria-label="Remove one {{ product.title }}"
+                  >
+                    {% render 'icon', name: 'minus' %}
+                  </button>
+                  <span class="builder__count" data-bundle-count="{{ product.handle }}">0</span>
+                  <button
+                    class="builder__btn"
+                    type="button"
+                    data-bundle-delta="1"
+                    data-bundle-handle="{{ product.handle }}"
+                    aria-label="Add one {{ product.title }}"
+                  >
+                    {% render 'icon', name: 'plus' %}
+                  </button>
+                </div>
+              </div>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      <div class="builder__actions reveal">
+        <button class="btn btn--primary btn--lg" type="button" data-bundle-add disabled>
+          <span>{{ 'sections.bundle_builder.add_bundle' | t }}</span>
+        </button>
+        <button class="btn btn--ghost" type="button" data-bundle-reset>
+          <span>{{ 'sections.bundle_builder.reset' | t }}</span>
+        </button>
+      </div>
+
+      {%- if section.settings.note != blank -%}
+        <p class="builder__disclaimer">{{ section.settings.note }}</p>
+      {%- endif -%}
+
+      <script type="application/json" data-bundle-config>
+        {
+          "size": {{ box_size | json }},
+          "label": {{ section.settings.box_label | json }},
+          "strings": {
+            "remainingOne": {{ 'sections.bundle_builder.remaining' | t: count: 1 | json }},
+            "remainingOther": {{ '{{ count }} tins left to pick' | json }},
+            "complete": {{ 'sections.bundle_builder.complete' | t | json }}
+          },
+          "flavors": [
+            {%- for product in source.products -%}
+              {%- assign tin = product.selected_or_first_available_variant -%}
+              {%- for variant in product.variants -%}
+                {%- if variant.title == '1 Tin' -%}
+                  {%- assign tin = variant -%}
+                {%- endif -%}
+              {%- endfor -%}
+              {
+                "handle": {{ product.handle | json }},
+                "title": {{ product.title | json }},
+                "flavor": {{ product.metafields.custom.flavor.value | json }},
+                "variantId": {{ tin.id | json }},
+                "price": {{ tin.price | json }}
+              }{% unless forloop.last %},{% endunless %}
+            {%- endfor -%}
+          ]
+        }
+      </script>
+    {%- else -%}
+      <p class="builder__empty">Pick a collection of pouch products in the theme editor.</p>
+    {%- endif -%}
+  </div>
+</section>
+
+<script src="{{ 'bundle-builder.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Bundle builder",
+  "settings": [
+    { "type": "collection", "id": "collection", "label": "Collection", "default": "pouches" },
+    {
+      "type": "range",
+      "id": "box_size",
+      "label": "Tins in a box",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 6
+    },
+    { "type": "text", "id": "box_label", "label": "Box name in cart", "default": "Mixed 6-pack" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Mix your flavors" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Build a mixed box" },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body",
+      "default": "Six tins, any split of Mint and Citrus. Same electrolytes in both \u2014 pick on taste."
+    },
+    {
+      "type": "textarea",
+      "id": "note",
+      "label": "Footer note",
+      "default": "Mixed boxes add one tin at a time, so they use the single-tin price. Same-flavor 3-packs and 6-packs save more."
+    }
+  ],
+  "presets": [{ "name": "Bundle builder" }]
+}
+{% endschema %}

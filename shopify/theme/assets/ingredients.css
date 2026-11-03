@@ -1,0 +1,98 @@
+.ingrid {
+  display: grid;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
+}
+
+.ingcard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  height: 100%;
+  padding: clamp(1.1rem, 2.5vw, 1.6rem);
+  border: 1px solid var(--c-line);
+  background: var(--c-surface);
+  color: var(--c-text-soft);
+  transition: border-color var(--dur) var(--ease-out), transform var(--dur) var(--ease-sport);
+}
+
+a.ingcard:hover {
+  border-color: var(--c-accent);
+  transform: translateY(-3px);
+  color: var(--c-text-soft);
+}
+
+.ingcard__label {
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--c-text-mute);
+}
+
+.ingcard__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 800;
+  font-style: var(--display-style);
+  letter-spacing: var(--display-tracking);
+  text-transform: var(--display-case);
+  color: var(--c-text);
+}
+
+.ingcard__dose {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--c-accent);
+}
+
+.ingcard__body {
+  margin: 0.4rem 0 0;
+  font-size: var(--fs-sm);
+}
+
+.ingcard__cta {
+  margin-top: auto;
+  padding-top: 0.9rem;
+}
+
+/* --- Detail page -------------------------------------------------------- */
+
+.indetail__back {
+  margin-bottom: 1.5rem;
+}
+
+.link-arrow--back::after {
+  content: none;
+}
+
+.link-arrow--back::before {
+  content: "\2190";
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.link-arrow--back:hover::before {
+  transform: translateX(-4px);
+}
+
+.indetail__dose {
+  display: inline-block;
+  margin: 0.25rem 0 1.5rem;
+  padding: 0.35rem 0.8rem;
+  background: var(--c-accent);
+  color: var(--c-accent-ink);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.indetail__body {
+  max-width: 66ch;
+}

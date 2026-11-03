@@ -1,0 +1,123 @@
+.footer {
+  background: var(--c-base-2);
+  border-top: 1px solid var(--c-line);
+  padding-top: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: var(--fs-sm);
+  color: var(--c-text-soft);
+}
+
+.footer__top {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+@media (min-width: 750px) {
+  .footer__top {
+    grid-template-columns: 1.6fr 1fr 1fr;
+  }
+}
+
+.footer__wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--c-text);
+}
+
+.footer__wordmark-boost {
+  padding: 0.1em 0.3em;
+  background: var(--c-volt);
+  color: var(--c-volt-ink);
+  font-size: 0.6em;
+  letter-spacing: 0.08em;
+  transform: skewX(var(--skew));
+}
+
+.footer__tagline {
+  max-width: 34ch;
+  margin-top: 1rem;
+}
+
+.footer__social {
+  display: flex;
+  gap: 0.25rem;
+  margin-top: 1.25rem;
+}
+
+.footer__heading {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--c-text-mute);
+}
+
+.footer__nav ul,
+.footer__legal-links ul {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.footer__nav a,
+.footer__legal-links a {
+  color: var(--c-text-soft);
+}
+
+.footer__nav a:hover,
+.footer__legal-links a:hover {
+  color: var(--c-volt);
+}
+
+.footer__compliance {
+  display: grid;
+  gap: 1rem;
+  padding-block: clamp(1.5rem, 3vw, 2rem);
+  border-top: 1px solid var(--c-line);
+}
+
+@media (min-width: 750px) {
+  .footer__compliance {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 2rem;
+  }
+}
+
+.footer__notice {
+  font-size: var(--fs-xs);
+}
+
+.footer__disclaimer {
+  font-size: var(--fs-xs);
+  color: var(--c-text-mute);
+}
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-block: 1.25rem;
+  border-top: 1px solid var(--c-line);
+  font-size: var(--fs-xs);
+  color: var(--c-text-mute);
+}
+
+.footer__bottom p {
+  margin: 0;
+}
+
+.footer__origin {
+  font-family: var(--font-display);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}

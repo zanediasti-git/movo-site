@@ -1,0 +1,137 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {
+        "eyebrow": "Electrolyte pouches"
+      },
+      "blocks": {
+        "f1": { "type": "flavor_link", "settings": { "product": "movo-boost-mint" } },
+        "f2": { "type": "flavor_link", "settings": { "product": "movo-boost-citrus" } }
+      },
+      "block_order": ["f1", "f2"]
+    },
+
+    "marquee": {
+      "type": "claims-marquee",
+      "settings": { "accent": "volt", "speed": 40 },
+      "blocks": {
+        "c1": { "type": "claim", "settings": { "text": "Zero sugar" } },
+        "c2": { "type": "claim", "settings": { "text": "Zero nicotine" } },
+        "c3": { "type": "claim", "settings": { "text": "Zero caffeine" } },
+        "c4": { "type": "claim", "settings": { "text": "18 per tin" } },
+        "c5": { "type": "claim", "settings": { "text": "Made in Denmark" } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4", "c5"]
+    },
+
+    "facts": {
+      "type": "supplement-facts",
+      "settings": {
+        "eyebrow": "Per pouch",
+        "heading": "Nothing hidden",
+        "body": "Every active and its dose, identical in Mint and Citrus.",
+        "servings": "18"
+      },
+      "blocks": {
+        "a1": { "type": "nutrient", "settings": { "name": "Sodium", "amount": "250 mg", "emphasize": true } },
+        "a2": { "type": "nutrient", "settings": { "name": "Potassium", "amount": "75 mg", "emphasize": true } },
+        "a3": { "type": "nutrient", "settings": { "name": "Magnesium", "amount": "15 mg", "emphasize": true } },
+        "a4": { "type": "nutrient", "settings": { "name": "L-Taurine", "amount": "100 mg", "emphasize": true } },
+        "a5": { "type": "nutrient", "settings": { "name": "Total sugars", "amount": "0 g" } },
+        "a6": { "type": "nutrient", "settings": { "name": "Calories", "amount": "0" } },
+        "a7": { "type": "nutrient", "settings": { "name": "Caffeine", "amount": "0 mg" } },
+        "a8": { "type": "nutrient", "settings": { "name": "Nicotine", "amount": "0 mg" } }
+      },
+      "block_order": ["a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8"]
+    },
+
+    "tiers": {
+      "type": "bundle-tiers",
+      "settings": {
+        "eyebrow": "Stock up",
+        "heading": "Buy one tin, or stock up",
+        "body": "The more tins you take, the less each one costs. Subscriptions save the most.",
+        "cta_text": "Build a mixed box",
+        "cta_link": "/pages/build-a-box"
+      },
+      "blocks": {
+        "t1": {
+          "type": "tier",
+          "settings": { "variant_title": "1 Tin", "title": "1 Tin", "meta": "18 pouches" }
+        },
+        "t2": {
+          "type": "tier",
+          "settings": {
+            "variant_title": "3-Pack",
+            "title": "3-Pack",
+            "meta": "54 pouches",
+            "note": "Enough for a training block"
+          }
+        },
+        "t3": {
+          "type": "tier",
+          "settings": {
+            "variant_title": "6-Pack",
+            "title": "6-Pack",
+            "meta": "108 pouches",
+            "featured": true,
+            "badge": "Best value"
+          }
+        }
+      },
+      "block_order": ["t1", "t2", "t3"]
+    },
+
+    "how": {
+      "type": "how-it-works",
+      "settings": {
+        "layout": "compact",
+        "eyebrow": "Three steps",
+        "heading": "How to use it",
+        "body": "Nothing to mix, nothing to carry but the tin."
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Pop it in",
+            "summary": "Place one pouch between lip and gum.",
+            "image_asset": "step-pop-it-in.jpg",
+            "image_alt": "A person holding a MOVO Boost pouch up to their mouth"
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Keep moving",
+            "summary": "No mixing, shaker, or bottle.",
+            "image_asset": "step-keep-moving.jpg",
+            "image_alt": "A runner mid-stride on a sunlit path"
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Hydrate anywhere",
+            "summary": "Electrolytes wherever you go.",
+            "image_asset": "step-hydrate-anywhere.jpg",
+            "image_alt": "A MOVO Boost tin being slipped into a trouser pocket"
+          }
+        }
+      },
+      "block_order": ["s1", "s2", "s3"]
+    },
+
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "accent": "brand",
+        "eyebrow": "Get the drop",
+        "heading": "Restocks, flavors, first access.",
+        "body": "New flavors land first with the list. One email when it matters, never more."
+      }
+    }
+  },
+  "order": ["main", "marquee", "facts", "tiers", "how", "newsletter"]
+}

@@ -1,0 +1,147 @@
+/* Buttons. Hard edges and a slight skew do most of the sporty work;
+   the inner span counter-skews so the label stays upright. */
+
+.btn {
+  --btn-bg: var(--c-volt);
+  --btn-fg: var(--c-volt-ink);
+  --btn-border: transparent;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.6rem;
+  border: 2px solid var(--btn-border);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 800;
+  font-style: normal;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  transform: skewX(var(--skew));
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+
+.btn > span {
+  display: inline-block;
+  transform: skewX(calc(var(--skew) * -1));
+}
+
+.btn:hover {
+  color: var(--btn-fg);
+  transform: skewX(var(--skew)) translateY(-2px);
+}
+
+.btn:active {
+  transform: skewX(var(--skew)) translateY(0);
+}
+
+.btn[disabled],
+.btn[aria-disabled="true"] {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.btn--primary {
+  --btn-bg: var(--c-volt);
+  --btn-fg: var(--c-volt-ink);
+}
+
+.btn--primary:hover {
+  --btn-bg: color-mix(in srgb, var(--c-volt) 72%, white);
+}
+
+.btn--accent {
+  --btn-bg: var(--c-accent);
+  --btn-fg: var(--c-accent-ink);
+}
+
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--c-text);
+  --btn-border: var(--c-line-strong);
+}
+
+.btn--ghost:hover {
+  --btn-bg: var(--c-text);
+  --btn-fg: var(--c-base);
+  --btn-border: var(--c-text);
+}
+
+.btn--outline-accent {
+  --btn-bg: transparent;
+  --btn-fg: var(--c-accent);
+  --btn-border: var(--c-accent);
+}
+
+.btn--outline-accent:hover {
+  --btn-bg: var(--c-accent);
+  --btn-fg: var(--c-accent-ink);
+}
+
+.btn--lg {
+  padding: 1.15rem 2.1rem;
+  font-size: 1.1875rem;
+}
+
+.btn--sm {
+  padding: 0.65rem 1.1rem;
+  font-size: 0.9375rem;
+}
+
+.btn--block {
+  width: 100%;
+}
+
+/* Square, unskewed button for icon affordances in the header and drawer. */
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-sm);
+  color: var(--c-text);
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.btn-icon:hover {
+  background: var(--c-surface-2);
+  color: var(--c-text);
+}
+
+.btn-icon svg {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+/* Text link with an arrow that slides on hover. */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+}
+
+.link-arrow::after {
+  content: "\2192";
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.link-arrow:hover {
+  color: var(--c-text);
+}
+
+.link-arrow:hover::after {
+  transform: translateX(4px);
+}

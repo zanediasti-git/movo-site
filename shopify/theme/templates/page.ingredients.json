@@ -1,0 +1,84 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "accent": "brand",
+        "eyebrow": "Inside the pouch",
+        "heading": "A closer look at every component.",
+        "lede": "Four actives, and the amount of each in every MOVO Boost pouch. Tap any component to see how it works in the body.",
+        "cta_text": "Shop MOVO Boost",
+        "cta_link": "/collections/pouches"
+      }
+    },
+
+    "grid": {
+      "type": "ingredient-grid",
+      "settings": {
+        "background": "base",
+        "eyebrow": "Component guide",
+        "heading": "Electrolytes and supporting ingredients",
+        "body": "Doses shown are per pouch and are identical in Mint and Citrus."
+      },
+      "blocks": {
+        "i1": {
+          "type": "ingredient",
+          "settings": {
+            "label": "Electrolyte",
+            "name": "Sodium",
+            "dose": "250 mg per pouch",
+            "body": "The electrolyte you lose most in sweat. Sodium keeps fluid where your muscles need it and helps nerves fire on time.",
+            "link": "/pages/sodium"
+          }
+        },
+        "i2": {
+          "type": "ingredient",
+          "settings": {
+            "label": "Electrolyte",
+            "name": "Potassium",
+            "dose": "75 mg per pouch",
+            "body": "Sodium’s partner. Potassium works inside your cells to keep muscles contracting and relaxing smoothly.",
+            "link": "/pages/potassium"
+          }
+        },
+        "i3": {
+          "type": "ingredient",
+          "settings": {
+            "label": "Electrolyte",
+            "name": "Magnesium",
+            "dose": "15 mg per pouch",
+            "body": "The relaxation mineral. Magnesium helps muscles release after they contract and supports the energy systems that keep you going.",
+            "link": "/pages/magnesium"
+          }
+        },
+        "i4": {
+          "type": "ingredient",
+          "settings": {
+            "label": "Amino acid",
+            "name": "L-Taurine",
+            "dose": "100 mg per pouch",
+            "body": "An amino acid concentrated in your muscles. Taurine supports muscle function, hydration at the cellular level, and endurance.",
+            "link": "/pages/l-taurine"
+          }
+        }
+      },
+      "block_order": ["i1", "i2", "i3", "i4"]
+    },
+
+    "other": {
+      "type": "rich-text",
+      "settings": {
+        "background": "surface",
+        "source": "section",
+        "heading": "Other ingredients",
+        "body": "<p>Alongside the four actives, each pouch contains microcrystalline cellulose (MCC) as the carrier, xylitol and menthol for taste, and natural flavors. No sugar, no caffeine, no nicotine.</p>",
+        "show_allergen": true,
+        "cta_text": "See full supplement facts",
+        "cta_link": "/products/movo-boost-mint#supplement-facts",
+        "cta2_text": "Ask a question",
+        "cta2_link": "/pages/contact"
+      }
+    }
+  },
+  "order": ["hero", "grid", "other"]
+}

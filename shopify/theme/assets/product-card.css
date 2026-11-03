@@ -1,0 +1,113 @@
+.pcards {
+  display: grid;
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+}
+
+.pcard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--c-line);
+  background: var(--c-surface);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--dur) var(--ease-out), transform var(--dur) var(--ease-sport),
+    box-shadow var(--dur) var(--ease-out);
+}
+
+.pcard:hover {
+  border-color: var(--c-accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.pcard__media {
+  aspect-ratio: 1;
+  background: var(--c-base-2);
+}
+
+/* Accent wash that intensifies on hover, so each flavor owns its card. */
+.pcard__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(170deg, color-mix(in srgb, var(--c-accent) 36%, transparent), transparent 65%);
+  opacity: 0.75;
+  transition: opacity var(--dur) var(--ease-out);
+}
+
+.pcard:hover .pcard__media::after {
+  opacity: 1;
+}
+
+.pcard__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: clamp(1rem, 2vw, 1.4rem);
+}
+
+.pcard__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
+  font-weight: 800;
+  font-style: var(--display-style);
+  letter-spacing: var(--display-tracking);
+  text-transform: var(--display-case);
+}
+
+.pcard__title a {
+  color: var(--c-text);
+}
+
+/* Stretch the title link over the card so the whole thing is clickable,
+   while the visible arrow stays decorative. */
+.pcard__title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.pcard__note {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--c-accent);
+}
+
+.pcard__meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin: 0;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-text-mute);
+}
+
+.pcard__count {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--c-text);
+}
+
+.pcard__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--c-line);
+}
+
+.flavor-cards__empty {
+  padding: 2rem;
+  border: 1px dashed var(--c-line-strong);
+  text-align: center;
+  color: var(--c-text-mute);
+}

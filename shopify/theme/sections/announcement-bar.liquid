@@ -1,0 +1,63 @@
+{{ 'announcement-bar.css' | asset_url | stylesheet_tag }}
+
+{%- if section.blocks.size > 0 -%}
+  <div class="announcement" data-flavor="{{ section.settings.accent }}">
+    <ul class="announcement__track" role="list">
+      {%- for block in section.blocks -%}
+        <li class="announcement__item">
+          {%- if block.settings.link != blank -%}
+            <a href="{{ block.settings.link }}">{{ block.settings.text }}</a>
+          {%- else -%}
+            {{ block.settings.text }}
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [
+    {
+      "type": "select",
+      "id": "accent",
+      "label": "Accent",
+      "options": [
+        { "value": "volt", "label": "Volt" },
+        { "value": "mint", "label": "Mint" },
+        { "value": "citrus", "label": "Citrus" }
+      ],
+      "default": "volt"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Message",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Free shipping over $45"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "message", "settings": { "text": "Zero sugar. Zero nicotine. Zero caffeine." } },
+      { "type": "message", "settings": { "text": "Free shipping over $45" } },
+      { "type": "message", "settings": { "text": "18 pouches per tin" } }
+    ]
+  }
+}
+{% endschema %}

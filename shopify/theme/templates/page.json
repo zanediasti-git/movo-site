@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": { "accent": "brand" }
+    },
+    "body": {
+      "type": "rich-text",
+      "settings": { "source": "page" }
+    }
+  },
+  "order": ["hero", "body"]
+}

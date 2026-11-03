@@ -1,0 +1,92 @@
+{
+  "general": {
+    "a11y": {
+      "skip_to_content": "Skip to content",
+      "close": "Close",
+      "menu": "Menu",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "pagination": {
+      "page": "Page {{ number }}"
+    },
+    "search": {
+      "title": "Search",
+      "placeholder": "Search MOVO Boost",
+      "submit": "Search",
+      "no_results": "No results for \u201c{{ terms }}\u201d.",
+      "results_count": {
+        "one": "{{ count }} result",
+        "other": "{{ count }} results"
+      }
+    },
+    "newsletter": {
+      "label": "Email address",
+      "placeholder": "you@example.com",
+      "submit": "Sign up",
+      "success": "You\u2019re in. Watch your inbox."
+    },
+    "404": {
+      "title": "This page took a wrong turn.",
+      "subtext": "The page you were after does not exist. Everything else is still where you left it.",
+      "cta": "Shop MOVO Boost"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable",
+      "quantity": "Quantity",
+      "decrease_quantity": "Decrease quantity",
+      "increase_quantity": "Increase quantity",
+      "pack_size": "Pack size",
+      "flavor": "Flavor",
+      "purchase_type": "Purchase type",
+      "one_time": "One-time purchase",
+      "subscribe": "Subscribe & save",
+      "delivery_every": "Delivery every {{ interval }}",
+      "save_amount": "Save {{ amount }}",
+      "pouches_per_tin": "{{ count }} pouches per tin",
+      "pouches_label": "pouches per tin",
+      "view_full_details": "View full details"
+    },
+    "facts": {
+      "title": "Supplement Facts",
+      "serving_size": "Serving size",
+      "servings_per_tin": "Servings per tin",
+      "one_pouch": "1 pouch",
+      "nutrient": "Nutrient",
+      "amount_per_pouch": "Amount per pouch"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Your cart",
+      "empty": "Your cart is empty.",
+      "continue_shopping": "Shop MOVO Boost",
+      "subtotal": "Subtotal",
+      "checkout": "Checkout",
+      "remove": "Remove",
+      "taxes_and_shipping": "Taxes and shipping calculated at checkout.",
+      "free_shipping_progress": "You\u2019re {{ amount }} away from free shipping.",
+      "free_shipping_reached": "Free shipping unlocked.",
+      "item_count": {
+        "one": "{{ count }} item",
+        "other": "{{ count }} items"
+      }
+    }
+  },
+  "sections": {
+    "bundle_builder": {
+      "title": "Build your box",
+      "remaining": {
+        "one": "{{ count }} tin left to pick",
+        "other": "{{ count }} tins left to pick"
+      },
+      "complete": "Box complete",
+      "add_bundle": "Add box to cart",
+      "reset": "Start over"
+    }
+  }
+}

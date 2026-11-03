@@ -1,0 +1,33 @@
+{%- comment -%}
+  Cart lines, shipping progress and totals. Rendered in the drawer and on the
+  cart page, so it owns no form: quantity changes go through the Cart AJAX API
+  in cart-drawer.js and checkout is a plain link.
+{%- endcomment -%}
+
+{%- if cart.item_count == 0 -%}
+  <div class="cart-empty">
+    <p class="display-4">{{ 'cart.general.empty' | t }}</p>
+    <a class="btn btn--primary" href="{{ routes.all_products_collection_url }}">
+      <span>{{ 'cart.general.continue_shopping' | t }}</span>
+    </a>
+  </div>
+{%- else -%}
+  {% render 'cart-shipping-bar', cart: cart %}
+
+  <ul class="cart-lines" role="list">
+    {%- for item in cart.items -%}
+      {% render 'cart-line-item', item: item %}
+    {%- endfor -%}
+  </ul>
+
+  <div class="cart-foot">
+    <div class="cart-foot__row">
+      <span>{{ 'cart.general.subtotal' | t }}</span>
+      <span class="cart-foot__total">{{ cart.total_price | money }}</span>
+    </div>
+    <p class="cart-foot__note">{{ 'cart.general.taxes_and_shipping' | t }}</p>
+    <a class="btn btn--primary btn--lg btn--block" href="/checkout">
+      <span>{{ 'cart.general.checkout' | t }}</span>
+    </a>
+  </div>
+{%- endif -%}

@@ -1,0 +1,31 @@
+{%- comment -%}
+  A section rather than a snippet so cart-drawer.js can refresh it through the
+  Section Rendering API (`?sections=cart-drawer`) after every cart mutation.
+{%- endcomment -%}
+
+{%- unless settings.cart_drawer_enabled == false -%}
+  <div class="drawer" id="cart-drawer" data-cart-drawer>
+    <div class="drawer__scrim" data-cart-close></div>
+
+    <aside class="drawer__panel" role="dialog" aria-modal="true" aria-labelledby="cart-drawer-title">
+      <header class="drawer__head">
+        <h2 class="display-4" id="cart-drawer-title">{{ 'cart.general.title' | t }}</h2>
+        <button class="btn-icon" type="button" data-cart-close>
+          <span class="visually-hidden">{{ 'general.a11y.close' | t }}</span>
+          {% render 'icon', name: 'close' %}
+        </button>
+      </header>
+
+      <div class="drawer__body" data-cart-contents>
+        {% render 'cart-contents', cart: cart %}
+      </div>
+    </aside>
+  </div>
+{%- endunless -%}
+
+{% schema %}
+{
+  "name": "Cart drawer",
+  "settings": []
+}
+{% endschema %}

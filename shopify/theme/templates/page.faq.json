@@ -1,0 +1,140 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "accent": "brand",
+        "eyebrow": "Questions",
+        "heading": "Everything people ask us.",
+        "lede": "Short, straight answers about what MOVO Boost is, how to use it, and who it isn’t for."
+      }
+    },
+
+    "faq": {
+      "type": "faq-accordion",
+      "settings": {
+        "exclusive": true,
+        "footer": "<p>Didn’t find it? <a href=\"/pages/contact\">Send us a question</a> and we’ll answer it.</p>"
+      },
+      "blocks": {
+        "g1": { "type": "group", "settings": { "title": "The basics" } },
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "What is MOVO Boost?",
+            "answer": "<p>MOVO Boost is an electrolyte pouch. It’s a small, soft pouch that sits between your lip and gum and releases electrolytes — sodium, potassium, magnesium and L-taurine — while you get on with your day. There’s no drink to mix and no bottle to carry.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "How do I use it?",
+            "answer": "<p>Take one pouch from the tin and place it between your lip and gum, upper or lower, whichever is comfortable. Leave it there while you train, travel or work, then remove it and throw it away. You don’t need to chew it.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "How long do I keep it in?",
+            "answer": "<p>We suggest around 2 hours, or until the flavor dissipates. There’s no harm in leaving it in for longer.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "Can you swallow it?",
+            "answer": "<p>No. The pouch itself is not meant to be swallowed. Swallowing the liquid as you use it is normal and expected, but the pouch should be removed and thrown away when you’re finished. Do not swallow the pouch.</p>"
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "Do you still drink water?",
+            "answer": "<p>Yes, and this one matters. MOVO Boost delivers electrolytes, not fluid. It’s designed to sit alongside your normal water intake, not to replace it. If you’re sweating heavily, keep drinking water.</p>"
+          }
+        },
+        "q6": {
+          "type": "question",
+          "settings": {
+            "question": "Is there a daily limit?",
+            "answer": "<p>For most healthy adults, up to 4 pouches a day is a sensible amount, but needs vary based on activity level and environment. One pouch could suit you just fine, or you may need 2 or 3. Anything above 4 pouches is likely too much.</p>"
+          }
+        },
+
+        "g2": { "type": "group", "settings": { "title": "What’s in it" } },
+        "q7": {
+          "type": "question",
+          "settings": {
+            "question": "Does it contain nicotine?",
+            "answer": "<p>No. MOVO Boost contains zero nicotine. It borrows the pouch format, nothing else about it.</p>"
+          }
+        },
+        "q8": {
+          "type": "question",
+          "settings": {
+            "question": "Does it contain caffeine?",
+            "answer": "<p>No. There is zero caffeine in MOVO Boost, so it won’t interfere with sleep or stack with your coffee.</p>"
+          }
+        },
+        "q9": {
+          "type": "question",
+          "settings": {
+            "question": "Does it contain sugar?",
+            "answer": "<p>No. MOVO Boost contains 0 g of sugar and 0 calories per pouch.</p>"
+          }
+        },
+        "q10": {
+          "type": "question",
+          "settings": {
+            "question": "Why xylitol?",
+            "answer": "<p>Xylitol gives the pouch a clean, slightly sweet taste without adding sugar, and it doesn’t leave the aftertaste some sweeteners do. It’s used in small amounts purely for flavor.</p>",
+            "show_allergen": true
+          }
+        },
+        "q11": {
+          "type": "question",
+          "settings": {
+            "question": "Where is MOVO Boost made?",
+            "answer": "<p>MOVO Boost is developed and produced in Denmark, in food-grade facilities operating to EU food-safety standards.</p>"
+          }
+        },
+
+        "g3": { "type": "group", "settings": { "title": "Safety" } },
+        "q12": {
+          "type": "question",
+          "settings": {
+            "question": "Who shouldn’t use MOVO Boost?",
+            "answer": "<p>MOVO Boost is intended for healthy adults. If you’re pregnant or breastfeeding, on a sodium-restricted diet, or managing kidney, heart or blood-pressure conditions, speak to your doctor before using it. The same goes for anyone on medication affecting electrolyte balance.</p>"
+          }
+        },
+        "q13": {
+          "type": "question",
+          "settings": {
+            "question": "Can children use it?",
+            "answer": "<p>Yes. MOVO Boost is an electrolyte supplement that is safe for children to use. However, children should have limited usage, anybody below the age of 18 should have a parent or guardian present when using MOVO Boost, and anybody below the age of 5 should not use it at all.</p>"
+          }
+        },
+        "q14": {
+          "type": "question",
+          "settings": {
+            "question": "Can I use it during exercise?",
+            "answer": "<p>Yes — it’s one of the reasons the format exists. A pouch stays put while you run, lift or ride, so you’re not stopping to drink or carrying a bottle. Use your judgement during very intense efforts where breathing through your mouth makes it uncomfortable.</p>"
+          }
+        },
+        "q15": {
+          "type": "question",
+          "settings": {
+            "question": "What if a pouch is swallowed by accident?",
+            "answer": "<p>A single swallowed pouch is unlikely to cause harm in an adult and will usually pass through. Drink some water and keep an eye on how you feel. If a child or a pet swallows one, or if you notice any unusual symptoms, contact a doctor or vet straight away.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "g1", "q1", "q2", "q3", "q4", "q5", "q6",
+        "g2", "q7", "q8", "q9", "q10", "q11",
+        "g3", "q12", "q13", "q14", "q15"
+      ]
+    }
+  },
+  "order": ["hero", "faq"]
+}

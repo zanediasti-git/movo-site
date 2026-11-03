@@ -1,0 +1,109 @@
+{{ 'footer.css' | asset_url | stylesheet_tag }}
+
+{%- assign menu = linklists[section.settings.menu] -%}
+
+<footer class="footer is-dark">
+  <div class="container footer__top">
+    <div class="footer__brand">
+      <a class="footer__wordmark" href="{{ routes.root_url }}">
+        MOVO<span class="footer__wordmark-boost">Boost</span>
+      </a>
+      <p class="footer__tagline">{{ section.settings.tagline | default: settings.tagline }}</p>
+
+      {%- if settings.social_instagram != blank
+          or settings.social_tiktok != blank
+          or settings.social_youtube != blank
+      -%}
+        <ul class="footer__social" role="list">
+          {%- if settings.social_instagram != blank -%}
+            <li>
+              <a class="btn-icon" href="{{ settings.social_instagram }}" rel="noopener" target="_blank">
+                <span class="visually-hidden">Instagram</span>
+                {% render 'icon', name: 'instagram' %}
+              </a>
+            </li>
+          {%- endif -%}
+          {%- if settings.social_tiktok != blank -%}
+            <li>
+              <a class="btn-icon" href="{{ settings.social_tiktok }}" rel="noopener" target="_blank">
+                <span class="visually-hidden">TikTok</span>
+                {% render 'icon', name: 'tiktok' %}
+              </a>
+            </li>
+          {%- endif -%}
+          {%- if settings.social_youtube != blank -%}
+            <li>
+              <a class="btn-icon" href="{{ settings.social_youtube }}" rel="noopener" target="_blank">
+                <span class="visually-hidden">YouTube</span>
+                {% render 'icon', name: 'youtube' %}
+              </a>
+            </li>
+          {%- endif -%}
+        </ul>
+      {%- endif -%}
+    </div>
+
+    <nav class="footer__nav" aria-label="Footer">
+      <h2 class="footer__heading">Explore</h2>
+      <ul role="list">
+        {%- for link in menu.links -%}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+
+    <div class="footer__legal-links">
+      <h2 class="footer__heading">Legal</h2>
+      <ul role="list">
+        <li><a href="{{ shop.privacy_policy.url }}">Privacy policy</a></li>
+        <li><a href="{{ shop.terms_of_service.url }}">Terms of service</a></li>
+        <li><a href="{{ shop.refund_policy.url }}">Refund policy</a></li>
+        <li><a href="{{ shop.shipping_policy.url }}">Shipping policy</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer__compliance">
+    {%- if settings.allergen_warning != blank -%}
+      <div class="notice footer__notice">
+        <span class="notice__icon" aria-hidden="true">&#9888;</span>
+        {{ settings.allergen_warning }}
+      </div>
+    {%- endif -%}
+
+    {%- if settings.supplement_disclaimer != blank -%}
+      <div class="footer__disclaimer">{{ settings.supplement_disclaimer }}</div>
+    {%- endif -%}
+  </div>
+
+  <div class="container footer__bottom">
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+    <p class="footer__origin">{{ section.settings.origin_note }}</p>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "footer"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Zero-sugar electrolyte pouches for life on the move."
+    },
+    {
+      "type": "text",
+      "id": "origin_note",
+      "label": "Origin note",
+      "default": "Developed in Florida. Made in Denmark."
+    }
+  ]
+}
+{% endschema %}

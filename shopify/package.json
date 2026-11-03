@@ -1,0 +1,18 @@
+{
+  "name": "movo-boost-shopify",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MOVO Boost custom Shopify Online Store 2.0 theme, plus a local Liquid preview server.",
+  "type": "module",
+  "scripts": {
+    "preview": "node preview/server.mjs",
+    "theme:dev": "shopify theme dev --path theme",
+    "theme:check": "shopify theme check --path theme",
+    "theme:pull-settings": "shopify theme pull --path theme --only config/settings_data.json",
+    "theme:push-unpublished": "shopify theme push --path theme --unpublished"
+  },
+  "devDependencies": {
+    "@shopify/cli": "^3.70.0",
+    "liquidjs": "^10.16.1"
+  }
+}

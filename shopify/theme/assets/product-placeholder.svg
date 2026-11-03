@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-label="MOVO pouch tin placeholder">
+  <defs>
+    <linearGradient id="tinBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#cfeaf6" />
+    </linearGradient>
+    <linearGradient id="tinSide" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0077b6" />
+      <stop offset="50%" stop-color="#00a8e8" />
+      <stop offset="100%" stop-color="#0077b6" />
+    </linearGradient>
+    <radialGradient id="lidShine" cx="0.3" cy="0.3" r="0.8">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <ellipse cx="160" cy="270" rx="120" ry="14" fill="#0b1d2a" opacity="0.12" />
+
+  <g transform="translate(60 70)">
+    <rect x="0" y="40" width="200" height="140" rx="22" fill="url(#tinSide)" />
+    <rect x="0" y="40" width="200" height="22" rx="22" fill="#034d76" opacity="0.35" />
+    <rect x="0" y="158" width="200" height="22" rx="22" fill="#034d76" opacity="0.35" />
+
+    <ellipse cx="100" cy="40" rx="100" ry="22" fill="url(#tinBody)" stroke="#0077b6" stroke-width="2" />
+    <ellipse cx="100" cy="40" rx="100" ry="22" fill="url(#lidShine)" />
+
+    <text x="100" y="46" text-anchor="middle"
+      font-family="Inter, Helvetica, Arial, sans-serif"
+      font-weight="800" font-size="22" fill="#0b1d2a" letter-spacing="4">
+      MOVO
+    </text>
+
+    <text x="100" y="120" text-anchor="middle"
+      font-family="Inter, Helvetica, Arial, sans-serif"
+      font-weight="700" font-size="14" fill="#ffffff" letter-spacing="3">
+      ELECTROLYTE
+    </text>
+    <text x="100" y="142" text-anchor="middle"
+      font-family="Inter, Helvetica, Arial, sans-serif"
+      font-weight="500" font-size="11" fill="#e7f3f9" letter-spacing="2">
+      MINT &middot; 15 POUCHES
+    </text>
+
+    <path
+      d="M40,164 Q60,154 80,164 T120,164 T160,164"
+      stroke="#7fe7d4" stroke-width="2" fill="none" opacity="0.85"
+    />
+  </g>
+</svg>

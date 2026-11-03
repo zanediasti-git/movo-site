@@ -1,0 +1,112 @@
+{{ 'rich-text.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  Long-form copy block. `page.content` is an option so a merchant can edit body
+  text from the page editor instead of the theme editor.
+{%- endcomment -%}
+
+<section class="section rich{% if section.settings.background == 'surface' %} section--surface{% endif %}{% if section.settings.align == 'center' %} rich--center{% endif %}">
+  <div class="container container--narrow">
+    {%- if section.settings.heading != blank -%}
+      <div class="section-head reveal">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        <h2 class="display-3">{{ section.settings.heading }}</h2>
+      </div>
+    {%- endif -%}
+
+    <div class="prose reveal">
+      {%- if section.settings.source == 'page' -%}
+        {{ page.content }}
+      {%- else -%}
+        {{ section.settings.body }}
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.callout_heading != blank or section.settings.callout_body != blank -%}
+      <aside class="callout reveal">
+        {%- if section.settings.callout_heading != blank -%}
+          <h3 class="callout__title">{{ section.settings.callout_heading }}</h3>
+        {%- endif -%}
+        {{ section.settings.callout_body }}
+      </aside>
+    {%- endif -%}
+
+    {%- if section.settings.show_allergen and settings.allergen_warning != blank -%}
+      <div class="notice rich__notice reveal">
+        <span class="notice__icon" aria-hidden="true">&#9888;</span>
+        {{ settings.allergen_warning }}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.cta_text != blank -%}
+      <div class="section-foot reveal">
+        <a class="btn btn--primary" href="{{ section.settings.cta_link }}">
+          <span>{{ section.settings.cta_text }}</span>
+        </a>
+        {%- if section.settings.cta2_text != blank -%}
+          <a class="btn btn--ghost" href="{{ section.settings.cta2_link }}">
+            <span>{{ section.settings.cta2_text }}</span>
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Rich text",
+  "settings": [
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "options": [
+        { "value": "base", "label": "Base" },
+        { "value": "surface", "label": "Raised" }
+      ],
+      "default": "base"
+    },
+    {
+      "type": "select",
+      "id": "source",
+      "label": "Body source",
+      "options": [
+        { "value": "section", "label": "This section" },
+        { "value": "page", "label": "The page content" }
+      ],
+      "default": "section"
+    },
+    {
+      "type": "select",
+      "id": "align",
+      "label": "Alignment",
+      "options": [
+        { "value": "start", "label": "Left" },
+        { "value": "center", "label": "Centered" }
+      ],
+      "default": "start"
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "richtext", "id": "body", "label": "Body" },
+    { "type": "header", "content": "Callout" },
+    { "type": "text", "id": "callout_heading", "label": "Callout heading" },
+    { "type": "richtext", "id": "callout_body", "label": "Callout body" },
+    {
+      "type": "checkbox",
+      "id": "show_allergen",
+      "label": "Show the xylitol warning",
+      "default": false
+    },
+    { "type": "header", "content": "Buttons" },
+    { "type": "text", "id": "cta_text", "label": "Primary button" },
+    { "type": "url", "id": "cta_link", "label": "Primary button link" },
+    { "type": "text", "id": "cta2_text", "label": "Secondary button" },
+    { "type": "url", "id": "cta2_link", "label": "Secondary button link" }
+  ],
+  "presets": [{ "name": "Rich text" }]
+}
+{% endschema %}

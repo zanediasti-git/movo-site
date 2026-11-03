@@ -1,0 +1,50 @@
+{%- comment -%}
+  One-time vs subscription, plus the delivery frequency. Renders nothing when
+  the product has no selling plan groups, so the page still works before the
+  Shopify Subscriptions app is installed.
+
+  Writes the `selling_plan` input the Cart AJAX API expects; an empty value
+  means a one-time purchase.
+{%- endcomment -%}
+
+{%- if product.selling_plan_groups.size > 0 -%}
+  {%- assign group = product.selling_plan_groups.first -%}
+  {%- assign first_plan = group.selling_plans.first -%}
+  {%- assign discount = first_plan.price_adjustments.first -%}
+
+  <fieldset class="plan" data-plan-picker>
+    <legend class="plan__legend">{{ 'products.product.purchase_type' | t }}</legend>
+
+    <label class="plan__opt">
+      <input type="radio" name="purchase_type" value="onetime" {% unless product.requires_selling_plan %}checked{% endunless %}>
+      <span class="plan__body">
+        <span class="plan__title">{{ 'products.product.one_time' | t }}</span>
+        <span class="plan__note">Ships once.</span>
+      </span>
+    </label>
+
+    <label class="plan__opt plan__opt--featured">
+      <input type="radio" name="purchase_type" value="subscribe" {% if product.requires_selling_plan %}checked{% endif %}>
+      <span class="plan__body">
+        <span class="plan__title">
+          {{ 'products.product.subscribe' | t }}
+          {%- if discount.value_type == 'percentage' -%}
+            <span class="tag-save"><span>Save {{ discount.value }}%</span></span>
+          {%- endif -%}
+        </span>
+        <span class="plan__note">{{ first_plan.description }}</span>
+      </span>
+    </label>
+
+    <div class="plan__freq" data-plan-frequency hidden>
+      <label class="plan__freq-label" for="plan-{{ section.id }}">
+        {{ group.options.first.name | default: 'Delivery every' }}
+      </label>
+      <select id="plan-{{ section.id }}" name="selling_plan" data-plan-select>
+        {%- for plan in group.selling_plans -%}
+          <option value="{{ plan.id }}">{{ plan.options.first.value | default: plan.name }}</option>
+        {%- endfor -%}
+      </select>
+    </div>
+  </fieldset>
+{%- endif -%}

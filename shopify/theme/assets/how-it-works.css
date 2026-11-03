@@ -1,0 +1,88 @@
+.how__steps {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  counter-reset: step;
+}
+
+.how__step {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.how__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--c-line);
+}
+
+.how__media img {
+  filter: saturate(1.1) contrast(1.04);
+}
+
+.how__num {
+  position: absolute;
+  left: -0.05em;
+  bottom: -0.22em;
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 11vw, 9rem);
+  font-weight: 800;
+  font-style: var(--display-style);
+  line-height: 1;
+  color: var(--c-brand);
+  text-shadow: 0 6px 24px rgba(0, 0, 0, 0.55);
+}
+
+.how__title {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  font-weight: 800;
+  font-style: var(--display-style);
+  letter-spacing: var(--display-tracking);
+  text-transform: var(--display-case);
+}
+
+.how__lead {
+  margin: 0;
+  color: var(--c-text);
+  font-weight: 600;
+}
+
+.how__detail {
+  margin: 0.6rem 0 0;
+  color: var(--c-text-soft);
+  font-size: var(--fs-sm);
+}
+
+@media (min-width: 750px) {
+  .how__steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* --- Detailed variant: alternating full-width rows ---------------------- */
+
+.how--detailed .how__steps {
+  grid-template-columns: 1fr;
+  gap: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+@media (min-width: 850px) {
+  .how--detailed .how__step {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+
+  .how--detailed .how__step:nth-child(even) .how__media {
+    order: 2;
+  }
+
+  .how--detailed .how__media {
+    aspect-ratio: 5 / 4;
+  }
+
+  .how--detailed .how__detail {
+    font-size: var(--fs-body);
+  }
+}

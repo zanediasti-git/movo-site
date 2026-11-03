@@ -1,0 +1,22 @@
+{
+  "current": {
+    "logo_width": 110,
+    "tagline": "Hydration without the bottle",
+    "color_base": "#f3fffc",
+    "color_surface": "#ffffff",
+    "color_ink": "#0a3d4c",
+    "color_brand": "#00b4e8",
+    "color_volt": "#ff4b3e",
+    "color_mint": "#00d9a8",
+    "color_citrus": "#ff9f1a",
+    "display_transform": "uppercase",
+    "display_italic": true,
+    "cart_drawer_enabled": true,
+    "free_shipping_threshold": "45",
+    "allergen_warning": "<p><strong>Contains xylitol.</strong> Keep away from dogs and other pets. Xylitol is toxic to dogs even in small amounts.</p>",
+    "supplement_disclaimer": "<p>MOVO Boost is a food supplement, not a medicine. It is not intended to diagnose, treat, cure, or prevent any disease.</p>",
+    "social_instagram": "",
+    "social_tiktok": "",
+    "social_youtube": ""
+  }
+}

@@ -1,0 +1,72 @@
+.faq__group {
+  margin: 2.25rem 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--c-accent);
+}
+
+.faq__group:first-child {
+  margin-top: 0;
+}
+
+.faq__item {
+  border-bottom: 1px solid var(--c-line);
+}
+
+.faq__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.05rem 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--c-text);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+/* Hide the default disclosure triangle in both engines. */
+.faq__q::-webkit-details-marker {
+  display: none;
+}
+
+.faq__q:hover {
+  color: var(--c-brand);
+}
+
+.faq__q .icon {
+  flex: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  color: var(--c-accent);
+  transition: transform var(--dur) var(--ease-sport);
+}
+
+.faq__item[open] .faq__q .icon {
+  transform: rotate(45deg);
+}
+
+.faq__a {
+  padding-bottom: 1.15rem;
+  max-width: 62ch;
+  color: var(--c-text-soft);
+  font-size: var(--fs-sm);
+}
+
+.faq__a .notice {
+  margin-top: 0.9rem;
+}
+
+.faq__footer {
+  margin-top: 2rem;
+  font-size: var(--fs-sm);
+  color: var(--c-text-mute);
+}

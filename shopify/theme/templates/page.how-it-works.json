@@ -1,0 +1,114 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "accent": "volt",
+        "eyebrow": "How it works",
+        "heading": "Three steps. No bottle in sight.",
+        "lede": "A MOVO Boost pouch sits between your lip and gum and releases electrolytes as it moistens. That’s the whole routine — there’s nothing to mix, measure, or carry.",
+        "image_asset": "step-keep-moving.jpg"
+      }
+    },
+
+    "steps": {
+      "type": "how-it-works",
+      "settings": {
+        "layout": "detailed",
+        "eyebrow": "",
+        "heading": "",
+        "body": ""
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Pop it in",
+            "summary": "Place one pouch between lip and gum.",
+            "detail": "Either side, upper or lower — wherever it sits comfortably. You’ll feel a light tingle as it settles. That’s the pouch starting to release.",
+            "image_asset": "step-pop-it-in.jpg",
+            "image_alt": "A person holding a MOVO Boost pouch up to their mouth"
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Keep moving",
+            "summary": "No mixing, shaker, or bottle.",
+            "detail": "Leave it in until the flavor fades, while you train, drive, travel or work. Hands stay free and nothing needs to be cleaned up afterwards.",
+            "image_asset": "step-keep-moving.jpg",
+            "image_alt": "A runner mid-stride on a sunlit path"
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Hydrate anywhere",
+            "summary": "Electrolytes wherever you go.",
+            "detail": "When you’re done, throw the used pouch away — don’t swallow it. The tin holds 18 and fits in a pocket, so the next one is always on you.",
+            "image_asset": "step-hydrate-anywhere.jpg",
+            "image_alt": "A MOVO Boost tin being slipped into a trouser pocket"
+          }
+        }
+      },
+      "block_order": ["s1", "s2", "s3"]
+    },
+
+    "rules": {
+      "type": "feature-cards",
+      "settings": {
+        "background": "surface",
+        "align": "center",
+        "eyebrow": "Using it well",
+        "heading": "The short version",
+        "body": "Four things worth knowing before your first pouch.",
+        "show_allergen": true
+      },
+      "blocks": {
+        "r1": {
+          "type": "feature",
+          "settings": {
+            "title": "2 hours",
+            "body": "That’s the sweet spot per pouch. You can also take it out once the flavor fades."
+          }
+        },
+        "r2": {
+          "type": "feature",
+          "settings": {
+            "title": "Don’t swallow it",
+            "body": "The pouch itself is not meant to be swallowed. Remove it and throw it away."
+          }
+        },
+        "r3": {
+          "type": "feature",
+          "settings": {
+            "title": "Still drink water",
+            "body": "MOVO Boost tops up electrolytes. It does not replace the fluid your body needs."
+          }
+        },
+        "r4": {
+          "type": "feature",
+          "settings": {
+            "title": "Up to 4 a day",
+            "body": "One is plenty for normal exercise, but we do not suggest more than 4 in a day."
+          }
+        }
+      },
+      "block_order": ["r1", "r2", "r3", "r4"]
+    },
+
+    "next": {
+      "type": "rich-text",
+      "settings": {
+        "source": "section",
+        "heading": "Still have questions?",
+        "body": "<p>We’ve answered the fifteen we get asked most — from daily limits to what happens if someone swallows one.</p>",
+        "cta_text": "Read the FAQ",
+        "cta_link": "/pages/faq",
+        "cta2_text": "Shop MOVO Boost",
+        "cta2_link": "/collections/pouches"
+      }
+    }
+  },
+  "order": ["hero", "steps", "rules", "next"]
+}

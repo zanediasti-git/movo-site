@@ -1,0 +1,86 @@
+{{ 'feature-cards.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  Generic title + body card grid. Used for the usage rules on How it works and
+  the three values on Our story.
+{%- endcomment -%}
+
+<section class="section features{% if section.settings.background == 'surface' %} section--surface{% endif %}">
+  <div class="container">
+    {%- if section.settings.heading != blank -%}
+      <div class="section-head{% if section.settings.align == 'center' %} section-head--center{% endif %} reveal">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        <h2 class="display-3">{{ section.settings.heading }}</h2>
+        {%- if section.settings.body != blank -%}
+          <p>{{ section.settings.body }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <ul class="features__grid" role="list">
+      {%- for block in section.blocks -%}
+        <li class="feature reveal">
+          <h3 class="feature__title">{{ block.settings.title }}</h3>
+          <p class="feature__body">{{ block.settings.body }}</p>
+        </li>
+      {%- endfor -%}
+    </ul>
+
+    {%- if section.settings.show_allergen and settings.allergen_warning != blank -%}
+      <div class="notice features__notice reveal">
+        <span class="notice__icon" aria-hidden="true">&#9888;</span>
+        {{ settings.allergen_warning }}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Feature cards",
+  "settings": [
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "options": [
+        { "value": "base", "label": "Base" },
+        { "value": "surface", "label": "Raised" }
+      ],
+      "default": "surface"
+    },
+    {
+      "type": "select",
+      "id": "align",
+      "label": "Heading alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "center"
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "body", "label": "Body" },
+    {
+      "type": "checkbox",
+      "id": "show_allergen",
+      "label": "Show the xylitol warning",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Card",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "2 hours" },
+        { "type": "textarea", "id": "body", "label": "Body" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Feature cards" }]
+}
+{% endschema %}

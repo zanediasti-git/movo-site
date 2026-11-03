@@ -1,0 +1,102 @@
+{{ 'stat-band.css' | asset_url | stylesheet_tag }}
+
+<section class="section stat-band" data-flavor="{{ section.settings.accent }}">
+  <span class="streaks" aria-hidden="true"></span>
+
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="display-3">{{ section.settings.heading }}</h2>
+      {%- if section.settings.body != blank -%}
+        <p>{{ section.settings.body }}</p>
+      {%- endif -%}
+    </div>
+
+    <ul class="stats" role="list">
+      {%- for block in section.blocks -%}
+        <li class="stat reveal{% if block.settings.highlight %} stat--highlight{% endif %}">
+          <span class="stat__value">
+            {{- block.settings.value -}}
+            <span class="stat__unit">{{ block.settings.unit }}</span>
+          </span>
+          <span class="stat__label">{{ block.settings.label }}</span>
+          {%- if block.settings.link != blank -%}
+            <a class="stat__link" href="{{ block.settings.link }}">
+              <span class="visually-hidden">More about {{ block.settings.label }}</span>
+            </a>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+
+    {%- if section.settings.cta_text != blank -%}
+      <div class="section-foot section-foot--center">
+        <a class="btn btn--ghost" href="{{ section.settings.cta_link }}">
+          <span>{{ section.settings.cta_text }}</span>
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Stat band",
+  "settings": [
+    {
+      "type": "select",
+      "id": "accent",
+      "label": "Accent",
+      "options": [
+        { "value": "brand", "label": "Brand blue" },
+        { "value": "volt", "label": "Volt" },
+        { "value": "mint", "label": "Mint" },
+        { "value": "citrus", "label": "Citrus" }
+      ],
+      "default": "brand"
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Per pouch" },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What\u2019s in one MOVO Boost"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body",
+      "default": "Four actives, nothing hidden. Identical in Mint and Citrus."
+    },
+    { "type": "text", "id": "cta_text", "label": "Button", "default": "See full supplement facts" },
+    { "type": "url", "id": "cta_link", "label": "Button link", "default": "/pages/ingredients" }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Value", "default": "250" },
+        { "type": "text", "id": "unit", "label": "Unit", "default": "mg" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Sodium" },
+        { "type": "url", "id": "link", "label": "Link" },
+        { "type": "checkbox", "id": "highlight", "label": "Highlight", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stat band",
+      "blocks": [
+        { "type": "stat", "settings": { "value": "250", "unit": "mg", "label": "Sodium", "link": "/pages/sodium" } },
+        { "type": "stat", "settings": { "value": "75", "unit": "mg", "label": "Potassium", "link": "/pages/potassium" } },
+        { "type": "stat", "settings": { "value": "15", "unit": "mg", "label": "Magnesium", "link": "/pages/magnesium" } },
+        { "type": "stat", "settings": { "value": "100", "unit": "mg", "label": "L-Taurine", "link": "/pages/l-taurine" } },
+        { "type": "stat", "settings": { "value": "0", "unit": "g", "label": "Sugar", "highlight": true } }
+      ]
+    }
+  ]
+}
+{% endschema %}

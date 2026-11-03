@@ -1,0 +1,22 @@
+{%- comment -%}
+  Pushes theme-editor settings into the CSS custom properties declared in
+  tokens.css, so merchants can retune the palette without touching CSS.
+{%- endcomment -%}
+
+{% style %}
+  :root {
+    --c-base: {{ settings.color_base }};
+    --c-base-2: color-mix(in srgb, {{ settings.color_base }} 82%, {{ settings.color_mint }});
+    --c-surface: {{ settings.color_surface }};
+    --c-surface-2: color-mix(in srgb, {{ settings.color_surface }} 78%, {{ settings.color_mint }});
+    --c-ink: {{ settings.color_ink | default: '#0a3d4c' }};
+    --c-text: {{ settings.color_ink | default: '#0a3d4c' }};
+    --c-brand: {{ settings.color_brand }};
+    --c-brand-deep: color-mix(in srgb, {{ settings.color_brand }} 72%, black);
+    --c-volt: {{ settings.color_volt }};
+    --c-mint: {{ settings.color_mint }};
+    --c-citrus: {{ settings.color_citrus }};
+    --display-case: {{ settings.display_transform }};
+    --display-style: {% if settings.display_italic %}italic{% else %}normal{% endif %};
+  }
+{% endstyle %}

@@ -1,0 +1,62 @@
+{%- comment -%}
+  Pack-size picker. Rendered as cards rather than a select so the per-tin price
+  and savings are visible without interaction.
+  Usage: {% render 'variant-picker', product: product, pouches: 18 %}
+{%- endcomment -%}
+
+{%- unless product.has_only_default_variant -%}
+  <fieldset class="vpicker" data-variant-picker>
+    <legend class="vpicker__legend">{{ 'products.product.pack_size' | t }}</legend>
+
+    <div class="vpicker__grid">
+      {%- for variant in product.variants -%}
+        {%- assign tins = variant.metafields.custom.tins.value -%}
+        {%- if tins == blank -%}
+          {%- if variant.title contains '6' -%}
+            {%- assign tins = 6 -%}
+          {%- elsif variant.title contains '3' -%}
+            {%- assign tins = 3 -%}
+          {%- else -%}
+            {%- assign tins = 1 -%}
+          {%- endif -%}
+        {%- endif -%}
+        {%- assign per_tin = variant.price | divided_by: tins -%}
+
+        <label class="vopt{% unless variant.available %} vopt--out{% endunless %}">
+          <input
+            type="radio"
+            name="pack"
+            value="{{ variant.id }}"
+            data-variant-id="{{ variant.id }}"
+            {% if variant == product.selected_or_first_available_variant %}checked{% endif %}
+            {% unless variant.available %}disabled{% endunless %}
+          >
+
+          <span class="vopt__body">
+            <span class="vopt__title">{{ variant.title }}</span>
+            <span class="vopt__meta">
+              {%- if tins > 1 -%}
+                {{ tins | times: pouches }} pouches
+              {%- else -%}
+                {{ pouches }} pouches
+              {%- endif -%}
+            </span>
+            <span class="vopt__price">{{ variant.price | money }}</span>
+            {%- if tins > 1 -%}
+              <span class="vopt__per">{{ per_tin | money }} per tin</span>
+            {%- endif -%}
+
+            {%- if variant.compare_at_price > variant.price -%}
+              {%- assign pct = variant.compare_at_price | minus: variant.price | times: 100 | divided_by: variant.compare_at_price -%}
+              <span class="tag-save vopt__save"><span>Save {{ pct }}%</span></span>
+            {%- endif -%}
+
+            {%- unless variant.available -%}
+              <span class="vopt__flag">{{ 'products.product.sold_out' | t }}</span>
+            {%- endunless -%}
+          </span>
+        </label>
+      {%- endfor -%}
+    </div>
+  </fieldset>
+{%- endunless -%}

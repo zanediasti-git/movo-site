@@ -1,0 +1,79 @@
+{{ 'newsletter.css' | asset_url | stylesheet_tag }}
+
+<section class="section newsletter" data-flavor="{{ section.settings.accent }}">
+  <span class="streaks" aria-hidden="true"></span>
+
+  <div class="container container--narrow newsletter__inner reveal">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="eyebrow eyebrow--plain">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+
+    <h2 class="display-2">{{ section.settings.heading }}</h2>
+    <p class="lede newsletter__lede">{{ section.settings.body }}</p>
+
+    {%- comment -%}
+      Shopify's customer form creates a customer tagged "newsletter"; no
+      third-party endpoint is needed.
+    {%- endcomment -%}
+    {% form 'customer', id: 'newsletter-form', class: 'newsletter__form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+
+      <div class="newsletter__field">
+        <label class="visually-hidden" for="newsletter-email">
+          {{ 'general.newsletter.label' | t }}
+        </label>
+        <input
+          id="newsletter-email"
+          type="email"
+          name="contact[email]"
+          placeholder="{{ 'general.newsletter.placeholder' | t }}"
+          autocomplete="email"
+          required
+        >
+        <button class="btn btn--primary" type="submit">
+          <span>{{ section.settings.button_text | default: 'Sign up' }}</span>
+        </button>
+      </div>
+    {% endform %}
+
+    {%- if section.settings.note != blank -%}
+      <p class="newsletter__note">{{ section.settings.note }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    {
+      "type": "select",
+      "id": "accent",
+      "label": "Accent",
+      "options": [
+        { "value": "brand", "label": "Brand blue" },
+        { "value": "volt", "label": "Volt" },
+        { "value": "mint", "label": "Mint" },
+        { "value": "citrus", "label": "Citrus" }
+      ],
+      "default": "brand"
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Get the drop" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Restocks, flavors, first access." },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body",
+      "default": "New flavors land first with the list. One email when it matters, never more."
+    },
+    { "type": "text", "id": "button_text", "label": "Button", "default": "Sign up" },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Note",
+      "default": "Unsubscribe anytime. We never sell your details."
+    }
+  ],
+  "presets": [{ "name": "Newsletter" }]
+}
+{% endschema %}

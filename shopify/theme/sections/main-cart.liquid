@@ -1,0 +1,27 @@
+{{ 'cart-page.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  `data-cart-contents` is the same hook the drawer uses, so the Section
+  Rendering API can refresh this page after a quantity change without a
+  full reload.
+{%- endcomment -%}
+
+<section class="section cart-page">
+  <div class="container cart-page__inner">
+    <header class="cart-page__head reveal">
+      <p class="eyebrow">{{ 'cart.general.item_count' | t: count: cart.item_count }}</p>
+      <h1 class="display-2">{{ 'cart.general.title' | t }}</h1>
+    </header>
+
+    <div data-cart-contents>
+      {% render 'cart-contents', cart: cart %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cart",
+  "settings": []
+}
+{% endschema %}

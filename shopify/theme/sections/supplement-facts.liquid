@@ -1,0 +1,149 @@
+{{ 'facts.css' | asset_url | stylesheet_tag }}
+
+<section class="section facts-section" id="supplement-facts">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="display-3">{{ section.settings.heading }}</h2>
+      {%- if section.settings.body != blank -%}
+        <p>{{ section.settings.body }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="facts-layout">
+      <div class="facts reveal">
+        <h3 class="facts__title">{{ 'products.facts.title' | t }}</h3>
+
+        <p class="facts__row">
+          <span>{{ 'products.facts.serving_size' | t }}</span>
+          <span>{{ 'products.facts.one_pouch' | t }}</span>
+        </p>
+        <p class="facts__row">
+          <span>{{ 'products.facts.servings_per_tin' | t }}</span>
+          <span>{{ section.settings.servings }}</span>
+        </p>
+
+        <div class="facts__rule"></div>
+
+        <table class="facts-table">
+          <thead>
+            <tr>
+              <th scope="col">{{ 'products.facts.nutrient' | t }}</th>
+              <th scope="col">{{ 'products.facts.amount_per_pouch' | t }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for block in section.blocks -%}
+              <tr{% if block.settings.emphasize %} class="is-key"{% endif %}>
+                <th scope="row">{{ block.settings.name }}</th>
+                <td>{{ block.settings.amount }}</td>
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+
+        <div class="facts__rule facts__rule--thin"></div>
+
+        {%- if section.settings.other_ingredients != blank -%}
+          <p class="facts__note">
+            <strong>Other ingredients:</strong> {{ section.settings.other_ingredients }}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.footnote != blank -%}
+          <p class="facts__note">{{ section.settings.footnote }}</p>
+        {%- endif -%}
+      </div>
+
+      <div class="facts-aside reveal">
+        <h3 class="facts-aside__title">{{ section.settings.aside_heading }}</h3>
+
+        {%- if section.settings.aside_body != blank -%}
+          <div class="facts-aside__body">{{ section.settings.aside_body }}</div>
+        {%- endif -%}
+
+        {%- if settings.allergen_warning != blank -%}
+          <div class="notice">
+            <span class="notice__icon" aria-hidden="true">&#9888;</span>
+            {{ settings.allergen_warning }}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.cta_text != blank -%}
+          <div class="section-foot">
+            <a class="btn btn--ghost" href="{{ section.settings.cta_link }}">
+              <span>{{ section.settings.cta_text }}</span>
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Supplement facts",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Per pouch" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Nothing hidden" },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body",
+      "default": "Every active and its dose, identical in Mint and Citrus."
+    },
+    { "type": "text", "id": "servings", "label": "Servings per tin", "default": "18" },
+    {
+      "type": "text",
+      "id": "other_ingredients",
+      "label": "Other ingredients",
+      "default": "microcrystalline cellulose (MCC), xylitol, menthol, natural flavors."
+    },
+    {
+      "type": "textarea",
+      "id": "footnote",
+      "label": "Footnote",
+      "default": "Daily Values have not been established for L-taurine. Values are per single pouch."
+    },
+    { "type": "header", "content": "Side panel" },
+    { "type": "text", "id": "aside_heading", "label": "Heading", "default": "Good to know" },
+    {
+      "type": "richtext",
+      "id": "aside_body",
+      "label": "Body",
+      "default": "<ul><li>Nothing to mix and nothing to carry but the tin.</li><li>Xylitol is there for taste, not sugar — it contributes 0 g of sugar.</li><li>MOVO Boost tops up electrolytes. It does not replace drinking water.</li></ul>"
+    },
+    { "type": "text", "id": "cta_text", "label": "Button", "default": "Explore each ingredient" },
+    { "type": "url", "id": "cta_link", "label": "Button link", "default": "/pages/ingredients" }
+  ],
+  "blocks": [
+    {
+      "type": "nutrient",
+      "name": "Nutrient",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name", "default": "Sodium" },
+        { "type": "text", "id": "amount", "label": "Amount", "default": "250 mg" },
+        { "type": "checkbox", "id": "emphasize", "label": "Emphasize", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Supplement facts",
+      "blocks": [
+        { "type": "nutrient", "settings": { "name": "Sodium", "amount": "250 mg", "emphasize": true } },
+        { "type": "nutrient", "settings": { "name": "Potassium", "amount": "75 mg", "emphasize": true } },
+        { "type": "nutrient", "settings": { "name": "Magnesium", "amount": "15 mg", "emphasize": true } },
+        { "type": "nutrient", "settings": { "name": "L-Taurine", "amount": "100 mg", "emphasize": true } },
+        { "type": "nutrient", "settings": { "name": "Total sugars", "amount": "0 g" } },
+        { "type": "nutrient", "settings": { "name": "Calories", "amount": "0" } },
+        { "type": "nutrient", "settings": { "name": "Caffeine", "amount": "0 mg" } },
+        { "type": "nutrient", "settings": { "name": "Nicotine", "amount": "0 mg" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

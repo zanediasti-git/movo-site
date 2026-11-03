@@ -1,0 +1,22 @@
+<section class="section four04">
+  <div class="container container--narrow">
+    <p class="eyebrow">404</p>
+    <h1 class="display-2">{{ 'general.404.title' | t }}</h1>
+    <p class="lede">{{ 'general.404.subtext' | t }}</p>
+    <div class="section-foot">
+      <a class="btn btn--primary" href="{{ routes.all_products_collection_url }}">
+        <span>{{ 'general.404.cta' | t }}</span>
+      </a>
+      <a class="btn btn--ghost" href="{{ routes.root_url }}">
+        <span>Back home</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "404",
+  "settings": []
+}
+{% endschema %}

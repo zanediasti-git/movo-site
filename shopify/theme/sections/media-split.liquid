@@ -1,0 +1,169 @@
+{{ 'media-split.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  Reusable copy-beside-image band. Used for the Denmark origin story on the
+  home page and for narrative blocks on the story page.
+{%- endcomment -%}
+
+<section
+  class="section media-split{% if section.settings.reverse %} media-split--reverse{% endif %}{% if section.settings.background == 'surface' %} section--surface{% endif %}"
+  data-flavor="{{ section.settings.accent }}"
+>
+  <div class="container media-split__inner">
+    <div class="media-split__copy reveal">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+
+      <h2 class="display-3">{{ section.settings.heading }}</h2>
+
+      {%- if section.settings.body != blank -%}
+        <div class="prose media-split__body">{{ section.settings.body }}</div>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <ul class="media-split__points" role="list">
+          {%- for block in section.blocks -%}
+            <li>
+              {% render 'icon', name: 'check' %}
+              <span>{{ block.settings.text }}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      {%- if section.settings.cta_text != blank -%}
+        <div class="section-foot">
+          <a class="btn btn--outline-accent" href="{{ section.settings.cta_link }}">
+            <span>{{ section.settings.cta_text }}</span>
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="media-split__media reveal">
+      {%- for n in (1..2) -%}
+        {%- if n == 1 -%}
+          {%- assign picked = section.settings.image_1 -%}
+          {%- assign fallback = section.settings.image_1_asset -%}
+          {%- assign alt = section.settings.image_1_alt -%}
+        {%- else -%}
+          {%- assign picked = section.settings.image_2 -%}
+          {%- assign fallback = section.settings.image_2_asset -%}
+          {%- assign alt = section.settings.image_2_alt -%}
+        {%- endif -%}
+
+        {%- if picked != blank -%}
+          {%- assign src = picked | image_url: width: 1400 -%}
+        {%- elsif fallback != blank -%}
+          {%- assign src = fallback | asset_url -%}
+        {%- else -%}
+          {%- assign src = nil -%}
+        {%- endif -%}
+
+        {%- if src -%}
+          <figure class="media-split__shot media-fill">
+            <img src="{{ src }}" alt="{{ alt | escape }}" width="1152" height="864" loading="lazy">
+          </figure>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Media split",
+  "settings": [
+    {
+      "type": "select",
+      "id": "accent",
+      "label": "Accent",
+      "options": [
+        { "value": "brand", "label": "Brand blue" },
+        { "value": "volt", "label": "Volt" },
+        { "value": "mint", "label": "Mint" },
+        { "value": "citrus", "label": "Citrus" }
+      ],
+      "default": "brand"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "options": [
+        { "value": "base", "label": "Base" },
+        { "value": "surface", "label": "Raised" }
+      ],
+      "default": "base"
+    },
+    { "type": "checkbox", "id": "reverse", "label": "Image on the left", "default": false },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Origin" },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Developed in Florida. Made in Denmark."
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>MOVO Boost is formulated and produced in Denmark, in food-grade facilities held to EU standards. Scandinavian precision, applied to something as simple as staying hydrated.</p>"
+    },
+    { "type": "text", "id": "cta_text", "label": "Button", "default": "Read our story" },
+    { "type": "url", "id": "cta_link", "label": "Button link", "default": "/pages/story" },
+    { "type": "header", "content": "Imagery" },
+    { "type": "image_picker", "id": "image_1", "label": "Image 1" },
+    {
+      "type": "text",
+      "id": "image_1_asset",
+      "label": "Fallback image 1 (theme asset filename)",
+      "default": "denmark-lab.jpg"
+    },
+    {
+      "type": "text",
+      "id": "image_1_alt",
+      "label": "Image 1 alt text",
+      "default": "A scientist weighing minerals on a precision scale in a bright Danish lab"
+    },
+    { "type": "image_picker", "id": "image_2", "label": "Image 2" },
+    {
+      "type": "text",
+      "id": "image_2_asset",
+      "label": "Fallback image 2 (theme asset filename)",
+      "default": "denmark-production.jpg"
+    },
+    {
+      "type": "text",
+      "id": "image_2_alt",
+      "label": "Image 2 alt text",
+      "default": "MOVO Boost tins moving along a stainless steel production line"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Bullet",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Produced under EU food-safety standards"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Media split",
+      "blocks": [
+        { "type": "point", "settings": { "text": "Formulated and blended in Denmark" } },
+        { "type": "point", "settings": { "text": "Produced under EU food-safety standards" } },
+        { "type": "point", "settings": { "text": "Every batch measured, mixed and checked" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

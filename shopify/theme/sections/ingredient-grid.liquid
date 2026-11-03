@@ -1,0 +1,133 @@
+{{ 'ingredients.css' | asset_url | stylesheet_tag }}
+
+<section class="section ingredients{% if section.settings.background == 'surface' %} section--surface{% endif %}">
+  <div class="container">
+    <div class="section-head reveal">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="display-3">{{ section.settings.heading }}</h2>
+      {%- if section.settings.body != blank -%}
+        <p>{{ section.settings.body }}</p>
+      {%- endif -%}
+    </div>
+
+    <ul class="ingrid" role="list">
+      {%- for block in section.blocks -%}
+        <li class="ingrid__item reveal">
+          {%- if block.settings.link != blank -%}
+            <a class="ingcard" href="{{ block.settings.link }}">
+          {%- else -%}
+            <div class="ingcard ingcard--static">
+          {%- endif -%}
+
+            <span class="ingcard__label">{{ block.settings.label }}</span>
+            <h3 class="ingcard__name">{{ block.settings.name }}</h3>
+            <p class="ingcard__dose">{{ block.settings.dose }}</p>
+            <p class="ingcard__body">{{ block.settings.body }}</p>
+
+            {%- if block.settings.link != blank -%}
+              <span class="link-arrow ingcard__cta">Read more</span>
+            {%- endif -%}
+
+          {%- if block.settings.link != blank -%}
+            </a>
+          {%- else -%}
+            </div>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredient grid",
+  "settings": [
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "options": [
+        { "value": "base", "label": "Base" },
+        { "value": "surface", "label": "Raised" }
+      ],
+      "default": "base"
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Component guide" },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Electrolytes and supporting ingredients"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body",
+      "default": "Doses shown are per pouch and are identical in Mint and Citrus."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Electrolyte" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Sodium" },
+        { "type": "text", "id": "dose", "label": "Dose", "default": "250 mg per pouch" },
+        { "type": "textarea", "id": "body", "label": "Body" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredient grid",
+      "blocks": [
+        {
+          "type": "ingredient",
+          "settings": {
+            "label": "Electrolyte",
+            "name": "Sodium",
+            "dose": "250 mg per pouch",
+            "body": "The electrolyte you lose most in sweat. Sodium keeps fluid where your muscles need it and helps nerves fire on time.",
+            "link": "/pages/sodium"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "label": "Electrolyte",
+            "name": "Potassium",
+            "dose": "75 mg per pouch",
+            "body": "Sodium\u2019s partner. Potassium works inside your cells to keep muscles contracting and relaxing smoothly.",
+            "link": "/pages/potassium"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "label": "Electrolyte",
+            "name": "Magnesium",
+            "dose": "15 mg per pouch",
+            "body": "The relaxation mineral. Magnesium helps muscles release after they contract and supports the energy systems that keep you going.",
+            "link": "/pages/magnesium"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "label": "Amino acid",
+            "name": "L-Taurine",
+            "dose": "100 mg per pouch",
+            "body": "An amino acid concentrated in your muscles. Taurine supports muscle function, hydration at the cellular level, and endurance.",
+            "link": "/pages/l-taurine"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

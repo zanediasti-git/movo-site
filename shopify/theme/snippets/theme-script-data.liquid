@@ -1,0 +1,22 @@
+{%- comment -%}
+  Routes and strings the theme's JavaScript needs. Read from Liquid rather than
+  window.Shopify so the local preview behaves the same as the storefront.
+{%- endcomment -%}
+
+<script>
+  window.MOVO = {
+    routes: {
+      root: {{ routes.root_url | json }},
+      cart: {{ routes.cart_url | json }},
+      cartAdd: {{ routes.cart_add_url | json }},
+      cartChange: {{ routes.cart_change_url | json }},
+      cartUpdate: {{ routes.cart_update_url | json }}
+    },
+    cartDrawerEnabled: {{ settings.cart_drawer_enabled | json }},
+    strings: {
+      addToCart: {{ 'products.product.add_to_cart' | t | json }},
+      soldOut: {{ 'products.product.sold_out' | t | json }},
+      unavailable: {{ 'products.product.unavailable' | t | json }}
+    }
+  };
+</script>

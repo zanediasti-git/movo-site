@@ -1,0 +1,31 @@
+.cart-page__inner {
+  max-width: 48rem;
+}
+
+.cart-page__head {
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+}
+
+.cart-page .cart-lines {
+  padding-inline: 0;
+}
+
+.cart-page .cart-line {
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--c-line);
+}
+
+.cart-page .ship-bar,
+.cart-page .cart-foot {
+  padding-inline: 0;
+}
+
+.cart-page .cart-empty {
+  padding-inline: 0;
+}
+
+.cart-page [data-cart-contents].is-busy {
+  opacity: 0.55;
+  pointer-events: none;
+}

@@ -1,0 +1,60 @@
+{{ 'search.css' | asset_url | stylesheet_tag }}
+{{ 'product-card.css' | asset_url | stylesheet_tag }}
+
+<section class="section search-page">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">{{ 'general.search.title' | t }}</p>
+      {%- if search.performed -%}
+        <h1 class="display-3">
+          {{ 'general.search.results_count' | t: count: search.results_count }}
+        </h1>
+      {%- else -%}
+        <h1 class="display-3">{{ 'general.search.title' | t }}</h1>
+      {%- endif -%}
+    </header>
+
+    <form class="search-form" action="{{ routes.search_url }}" method="get" role="search">
+      <label class="visually-hidden" for="search-q">{{ 'general.search.placeholder' | t }}</label>
+      <input
+        id="search-q"
+        type="search"
+        name="q"
+        value="{{ search.terms | escape }}"
+        placeholder="{{ 'general.search.placeholder' | t }}"
+        required
+      >
+      <input type="hidden" name="type" value="product">
+      <button class="btn btn--primary" type="submit">
+        <span>{{ 'general.search.submit' | t }}</span>
+      </button>
+    </form>
+
+    {%- if search.performed -%}
+      {%- if search.results_count > 0 -%}
+        <ul class="pcards" role="list">
+          {%- for item in search.results -%}
+            {%- if item.object_type == 'product' or item.price -%}
+              <li>{% render 'product-card', product: item %}</li>
+            {%- else -%}
+              <li class="search-hit">
+                <a href="{{ item.url }}">{{ item.title }}</a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- else -%}
+        <p class="search-page__empty">
+          {{ 'general.search.no_results' | t: terms: search.terms }}
+        </p>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Search",
+  "settings": []
+}
+{% endschema %}

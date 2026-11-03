@@ -1,0 +1,115 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "accent": "citrus",
+        "eyebrow": "Our story",
+        "heading": "Developed in Florida. Made in Denmark.",
+        "lede": "We set out to change hydration for good.",
+        "image_asset": "story-mid.jpg"
+      }
+    },
+
+    "part1": {
+      "type": "media-split",
+      "settings": {
+        "accent": "citrus",
+        "background": "base",
+        "eyebrow": "Chapter one",
+        "cta_text": "",
+        "heading": "It started with a full stomach",
+        "body": "<p>Being hydrated is more than just drinking your electrolytes; the main factor is water. Before early-morning football practices in the summer, I found it hard to eat breakfast, drink water, and then drink a hydration drink all before a 6 a.m. practice without feeling like sending it all right back out. That is when I wondered whether there could be a better way to hydrate.</p><p>So I looked at the most convenient delivery format I could find, getting rid of everything unnecessary and leaving just electrolytes, and I found powders. If you have ever tried to take powder without liquid, I will tell you first hand: it is not fun. After more thinking I became hooked on the idea of a pouch — you put it in and hydrate without even thinking about it.</p>",
+        "image_1_asset": "story-top-1.jpg",
+        "image_1_alt": "An early-morning football field",
+        "image_2_asset": "story-top-2.jpg",
+        "image_2_alt": "A notebook beside electrolyte powder"
+      }
+    },
+
+    "part2": {
+      "type": "media-split",
+      "settings": {
+        "accent": "citrus",
+        "background": "surface",
+        "reverse": true,
+        "eyebrow": "Chapter two",
+        "cta_text": "",
+        "heading": "A patent, and a lot of waiting",
+        "body": "<p>Turning that idea into something real took a long time. There was nothing like it on the market, so I researched as much as I could to see whether it was plausible. After a few months I decided it was, and I consulted my father. As a fifteen-year-old I was naive about inventing a product, an area he luckily had experience in. We applied for a patent before moving forward, and while I waited I set out to become an expert in electrolytes so I could build the right product.</p><p>Once the patent was processed it was time to start production. I reached out to countless pouch manufacturers and got zero responses, until finally one took a chance on us. On the call we realised they could not fit as much electrolyte into the pouch as we had hoped. So we had a decision: jump at the first opportunity and compromise the product, or hold out and keep searching.</p>",
+        "image_1_asset": "story-mid.jpg",
+        "image_1_alt": "An office phone and paperwork",
+        "image_2_asset": ""
+      }
+    },
+
+    "part3": {
+      "type": "media-split",
+      "settings": {
+        "accent": "citrus",
+        "background": "base",
+        "eyebrow": "Chapter three",
+        "heading": "We held out",
+        "body": "<p>Taking that deal would have put something on shelves a lot sooner, but a pouch that cannot carry a real dose of electrolytes is not worth making. Then our current manufacturer answered my email. I still remember the first call, my dad at his office and me skipping class, hiding in the bathroom, giddy at the thought of what we could accomplish. It was time for prototyping.</p><p>After multiple runs that did not meet our standard, we landed on a formula that suited our picky needs — a functional electrolyte pouch we believe can rival any sports drink on hydration. After handing them out to teammates and friends, we knew we had really made MOVO.</p><p>Once we had a working product, I put marketing in the hands of the high school athletes I had come to know, who needed easy, continuous hydration through practices and games in the Florida heat. That is who MOVO Boost was built for.</p>",
+        "cta_text": "Shop MOVO Boost",
+        "cta_link": "/collections/pouches",
+        "image_1_asset": "story-bottom-1.jpg",
+        "image_1_alt": "Prototype pouches on a work table",
+        "image_2_asset": "story-bottom-2.jpg",
+        "image_2_alt": "A Florida sports sideline in the heat"
+      },
+      "blocks": {
+        "p1": { "type": "point", "settings": { "text": "Formulated and blended in Denmark" } },
+        "p2": { "type": "point", "settings": { "text": "Produced under EU food-safety standards" } },
+        "p3": { "type": "point", "settings": { "text": "Every batch measured, mixed and checked" } }
+      },
+      "block_order": ["p1", "p2", "p3"]
+    },
+
+    "values": {
+      "type": "feature-cards",
+      "settings": {
+        "background": "surface",
+        "align": "center",
+        "eyebrow": "How we work",
+        "heading": "Three rules we don’t bend"
+      },
+      "blocks": {
+        "v1": {
+          "type": "feature",
+          "settings": {
+            "title": "Say what’s in it",
+            "body": "Every active and its dose is printed on the site and the tin. No proprietary blends, no hiding behind a label."
+          }
+        },
+        "v2": {
+          "type": "feature",
+          "settings": {
+            "title": "Don’t oversell it",
+            "body": "MOVO Boost is a convenient way to take electrolytes. It isn’t magic, it isn’t medicine, and it doesn’t replace drinking water."
+          }
+        },
+        "v3": {
+          "type": "feature",
+          "settings": {
+            "title": "Make it in Denmark",
+            "body": "Formulation and production stay close to home, under EU food-safety standards, so we can stand behind every batch."
+          }
+        }
+      },
+      "block_order": ["v1", "v2", "v3"]
+    },
+
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "accent": "citrus",
+        "eyebrow": "What’s next",
+        "heading": "More flavors are coming.",
+        "body": "Mixed Berry and Watermelon are next in line. The list hears first.",
+        "button_text": "Keep me posted"
+      }
+    }
+  },
+  "order": ["hero", "part1", "part2", "part3", "values", "newsletter"]
+}

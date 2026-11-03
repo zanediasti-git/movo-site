@@ -1,0 +1,79 @@
+{{ 'marquee.css' | asset_url | stylesheet_tag }}
+
+{%- if section.blocks.size > 0 -%}
+  <div class="marquee" data-flavor="{{ section.settings.accent }}" aria-hidden="true">
+    {%- comment -%} The list is duplicated so the scroll can loop seamlessly. {%- endcomment -%}
+    <div class="marquee__track" style="--marquee-duration: {{ section.settings.speed }}s">
+      {%- for i in (1..2) -%}
+        <ul class="marquee__group" role="list">
+          {%- for block in section.blocks -%}
+            <li class="marquee__item">
+              {{ block.settings.text }}
+              <span class="marquee__dot"></span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  {%- comment -%} Screen readers get the claims once, as plain text. {%- endcomment -%}
+  <ul class="visually-hidden">
+    {%- for block in section.blocks -%}
+      <li>{{ block.settings.text }}</li>
+    {%- endfor -%}
+  </ul>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Claims marquee",
+  "settings": [
+    {
+      "type": "select",
+      "id": "accent",
+      "label": "Accent",
+      "options": [
+        { "value": "volt", "label": "Volt" },
+        { "value": "brand", "label": "Brand blue" },
+        { "value": "mint", "label": "Mint" },
+        { "value": "citrus", "label": "Citrus" }
+      ],
+      "default": "volt"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Loop duration",
+      "min": 15,
+      "max": 70,
+      "step": 5,
+      "unit": "s",
+      "default": 35
+    }
+  ],
+  "blocks": [
+    {
+      "type": "claim",
+      "name": "Claim",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Zero sugar" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Claims marquee",
+      "blocks": [
+        { "type": "claim", "settings": { "text": "No bottle" } },
+        { "type": "claim", "settings": { "text": "No mixing" } },
+        { "type": "claim", "settings": { "text": "Zero sugar" } },
+        { "type": "claim", "settings": { "text": "Zero nicotine" } },
+        { "type": "claim", "settings": { "text": "Zero caffeine" } },
+        { "type": "claim", "settings": { "text": "18 per tin" } },
+        { "type": "claim", "settings": { "text": "Pocket sized" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

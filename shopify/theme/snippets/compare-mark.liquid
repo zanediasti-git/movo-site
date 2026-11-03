@@ -1,0 +1,29 @@
+{%- comment -%}
+  One cell of the comparison table. The glyph is decorative; the real answer
+  goes to assistive tech as text.
+  Usage: {% render 'compare-mark', value: 'yes', note: 'Varies by brand' %}
+{%- endcomment -%}
+
+{%- case value -%}
+  {%- when 'yes' -%}
+    {%- assign label = 'Yes' -%}
+  {%- when 'part' -%}
+    {%- assign label = 'Partly' -%}
+  {%- else -%}
+    {%- assign label = 'No' -%}
+{%- endcase -%}
+
+<span class="mark mark--{{ value }}" aria-hidden="true">
+  {%- if value == 'yes' -%}
+    {% render 'icon', name: 'check' %}
+  {%- elsif value == 'part' -%}
+    ~
+  {%- else -%}
+    {% render 'icon', name: 'dash' %}
+  {%- endif -%}
+</span>
+
+<span class="visually-hidden">
+  {{- label -}}
+  {%- if note != blank %} &mdash; {{ note }}{% endif -%}
+</span>

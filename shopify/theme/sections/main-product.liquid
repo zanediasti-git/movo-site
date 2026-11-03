@@ -1,0 +1,163 @@
+{{ 'product.css' | asset_url | stylesheet_tag }}
+
+{%- assign flavor = product.metafields.custom.flavor.value | downcase -%}
+{%- assign pouches = product.metafields.custom.pouches_per_tin.value | default: 18 -%}
+{%- assign current = product.selected_or_first_available_variant -%}
+
+<section class="product" data-flavor="{{ flavor | default: 'brand' }}" data-product-root>
+  <div class="container product__grid">
+    {%- comment -%} --- Gallery --- {%- endcomment -%}
+    <div class="gallery" data-gallery>
+      <div class="gallery__main media-fill">
+        {%- if product.featured_image -%}
+          <img
+            src="{{ product.featured_image | image_url: width: 1200 }}"
+            alt="{{ product.featured_image.alt | escape }}"
+            width="900"
+            height="900"
+            fetchpriority="high"
+            data-gallery-main
+          >
+        {%- endif -%}
+      </div>
+
+      {%- if product.images.size > 1 -%}
+        <ul class="gallery__thumbs" role="list">
+          {%- for image in product.images -%}
+            <li>
+              <button
+                class="gallery__thumb media-fill{% if forloop.first %} is-active{% endif %}"
+                type="button"
+                data-gallery-thumb="{{ image | image_url: width: 1200 }}"
+              >
+                <span class="visually-hidden">View image {{ forloop.index }}</span>
+                <img src="{{ image | image_url: width: 240 }}" alt="" width="110" height="110" loading="lazy">
+              </button>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} --- Details --- {%- endcomment -%}
+    <div class="product__details">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+
+      <h1 class="display-3 product__title">{{ product.title }}</h1>
+
+      <div class="product__price" data-price-target>
+        {% render 'price', price: current.price, compare_at: current.compare_at_price, size: 'lg' %}
+      </div>
+
+      <div class="product__desc">{{ product.description }}</div>
+
+      {%- comment -%} Flavor cross-sell, so the two products read as one range. {%- endcomment -%}
+      {%- if section.blocks.size > 0 -%}
+        <fieldset class="flavors">
+          <legend class="flavors__legend">{{ 'products.product.flavor' | t }}</legend>
+          <ul class="flavors__list" role="list">
+            {%- for block in section.blocks -%}
+              {%- assign linked = block.settings.product -%}
+              {%- if linked != blank -%}
+                {%- assign linked_flavor = linked.metafields.custom.flavor.value | downcase -%}
+                <li data-flavor="{{ linked_flavor }}">
+                  <a
+                    class="flavors__item{% if linked.id == product.id %} is-current{% endif %}"
+                    href="{{ linked.url }}"
+                    {% if linked.id == product.id %}aria-current="page"{% endif %}
+                  >
+                    <span class="flavors__dot"></span>
+                    <span>{{ linked.metafields.custom.flavor.value | default: linked.title }}</span>
+                  </a>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </fieldset>
+      {%- endif -%}
+
+      {% form 'product', product, id: 'product-form', class: 'buy' %}
+        <input type="hidden" name="id" value="{{ current.id }}" data-variant-input>
+
+        {% render 'variant-picker', product: product, pouches: pouches %}
+        {% render 'selling-plan-picker', product: product %}
+        {% render 'buy-buttons', product: product %}
+      {% endform %}
+
+      <dl class="product__specs">
+        <div>
+          <dt>Count</dt>
+          <dd>{{ pouches }} per tin</dd>
+        </div>
+        <div>
+          <dt>Sugar</dt>
+          <dd>0 g</dd>
+        </div>
+        <div>
+          <dt>Nicotine</dt>
+          <dd>None</dd>
+        </div>
+        <div>
+          <dt>Caffeine</dt>
+          <dd>None</dd>
+        </div>
+      </dl>
+
+      {%- if settings.allergen_warning != blank -%}
+        <div class="notice product__notice">
+          <span class="notice__icon" aria-hidden="true">&#9888;</span>
+          {{ settings.allergen_warning }}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+
+  {%- comment -%}
+    Variant and selling-plan pricing for product-form.js. Lives inside
+    [data-product-root] because the script scopes every lookup to it.
+  {%- endcomment -%}
+  <script type="application/json" data-product-json>
+  {
+    "variants": [
+      {%- for variant in product.variants -%}
+        {
+          "id": {{ variant.id }},
+          "available": {{ variant.available | json }},
+          "price": {{ variant.price }},
+          "compare_at_price": {{ variant.compare_at_price | default: 0 }},
+          "image": {{ variant.featured_image | image_url: width: 1200 | json }},
+          "plans": [
+            {%- for allocation in variant.selling_plan_allocations -%}
+              {
+                "id": {{ allocation.selling_plan.id }},
+                "price": {{ allocation.price }},
+                "compare_at_price": {{ allocation.compare_at_price | default: 0 }}
+              }{%- unless forloop.last -%},{%- endunless -%}
+            {%- endfor -%}
+          ]
+        }{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    ]
+  }
+  </script>
+</section>
+
+<script src="{{ 'product-form.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Electrolyte pouches" }
+  ],
+  "blocks": [
+    {
+      "type": "flavor_link",
+      "name": "Flavor link",
+      "settings": [{ "type": "product", "id": "product", "label": "Product" }]
+    }
+  ]
+}
+{% endschema %}

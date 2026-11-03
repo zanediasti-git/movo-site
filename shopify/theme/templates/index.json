@@ -1,0 +1,231 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-sport",
+      "settings": {
+        "accent": "brand",
+        "eyebrow": "Electrolyte pouches",
+        "heading": "Hydration.",
+        "heading_accent": "Without the bottle.",
+        "subheading": "Zero-sugar electrolytes that go where you go. Pop one in and keep moving — no shaker, no bottle, no waiting for powder to dissolve.",
+        "cta_text": "Shop MOVO Boost",
+        "cta_link": "/collections/pouches",
+        "cta2_text": "How it works",
+        "cta2_link": "/pages/how-it-works",
+        "background_asset": "hero-lifestyle.jpg",
+        "product_asset": "Image-front.jpg",
+        "product_image_alt": "An open tin of MOVO Boost pouches with loose pouches beside it"
+      },
+      "blocks": {
+        "t1": { "type": "trust", "settings": { "text": "18 pouches per tin" } },
+        "t2": { "type": "trust", "settings": { "text": "Zero sugar" } },
+        "t3": { "type": "trust", "settings": { "text": "Zero nicotine" } },
+        "t4": { "type": "trust", "settings": { "text": "Made in Denmark" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"]
+    },
+
+    "marquee": {
+      "type": "claims-marquee",
+      "settings": { "accent": "volt", "speed": 40 },
+      "blocks": {
+        "c1": { "type": "claim", "settings": { "text": "No bottle" } },
+        "c2": { "type": "claim", "settings": { "text": "No mixing" } },
+        "c3": { "type": "claim", "settings": { "text": "Zero sugar" } },
+        "c4": { "type": "claim", "settings": { "text": "Zero nicotine" } },
+        "c5": { "type": "claim", "settings": { "text": "Zero caffeine" } },
+        "c6": { "type": "claim", "settings": { "text": "18 per tin" } },
+        "c7": { "type": "claim", "settings": { "text": "Pocket sized" } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4", "c5", "c6", "c7"]
+    },
+
+    "flavors": {
+      "type": "flavor-cards",
+      "settings": {
+        "collection": "pouches",
+        "limit": 4,
+        "eyebrow": "Two flavors at launch",
+        "heading": "Pick your flavor",
+        "body": "Same formula in both. Choose on taste alone.",
+        "cta_text": "Build a mixed box",
+        "cta_link": "/pages/build-a-box"
+      }
+    },
+
+    "how": {
+      "type": "how-it-works",
+      "settings": {
+        "layout": "compact",
+        "eyebrow": "Three steps",
+        "heading": "How MOVO Boost works",
+        "body": "No shaker. No bottle. No waiting for powder to dissolve. Open the tin and go."
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Pop it in",
+            "summary": "Place one pouch between lip and gum.",
+            "image_asset": "step-pop-it-in.jpg",
+            "image_alt": "A person holding a MOVO Boost pouch up to their mouth"
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Keep moving",
+            "summary": "No mixing, shaker, or bottle.",
+            "image_asset": "step-keep-moving.jpg",
+            "image_alt": "A runner mid-stride on a sunlit path"
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Hydrate anywhere",
+            "summary": "Electrolytes wherever you go.",
+            "image_asset": "step-hydrate-anywhere.jpg",
+            "image_alt": "A MOVO Boost tin being slipped into a trouser pocket"
+          }
+        }
+      },
+      "block_order": ["s1", "s2", "s3"]
+    },
+
+    "zero": {
+      "type": "zero-bar",
+      "settings": {
+        "eyebrow": "What it is, and isn’t",
+        "heading": "The pouch, rebuilt for hydration.",
+        "body": "We took the most convenient format there is and filled it with electrolytes instead. Nothing else comes along for the ride."
+      },
+      "blocks": {
+        "z1": { "type": "zero", "settings": { "label": "Nicotine" } },
+        "z2": { "type": "zero", "settings": { "label": "Caffeine" } },
+        "z3": { "type": "zero", "settings": { "label": "Sugar" } }
+      },
+      "block_order": ["z1", "z2", "z3"]
+    },
+
+    "stats": {
+      "type": "stat-band",
+      "settings": {
+        "accent": "brand",
+        "eyebrow": "Per pouch",
+        "heading": "What’s in one MOVO Boost",
+        "body": "Four actives, nothing hidden. Identical in Mint and Citrus.",
+        "cta_text": "See full supplement facts",
+        "cta_link": "/pages/ingredients"
+      },
+      "blocks": {
+        "n1": {
+          "type": "stat",
+          "settings": { "value": "250", "unit": "mg", "label": "Sodium", "link": "/pages/sodium" }
+        },
+        "n2": {
+          "type": "stat",
+          "settings": { "value": "75", "unit": "mg", "label": "Potassium", "link": "/pages/potassium" }
+        },
+        "n3": {
+          "type": "stat",
+          "settings": { "value": "15", "unit": "mg", "label": "Magnesium", "link": "/pages/magnesium" }
+        },
+        "n4": {
+          "type": "stat",
+          "settings": { "value": "100", "unit": "mg", "label": "L-Taurine", "link": "/pages/l-taurine" }
+        },
+        "n5": {
+          "type": "stat",
+          "settings": { "value": "0", "unit": "g", "label": "Sugar", "highlight": true }
+        }
+      },
+      "block_order": ["n1", "n2", "n3", "n4", "n5"]
+    },
+
+    "compare": {
+      "type": "compare-table",
+      "settings": {
+        "eyebrow": "Why MOVO Boost",
+        "heading": "Same electrolytes. Far less hassle.",
+        "body": "Sports drinks and powders work. They just ask you to carry a bottle, find water, and stop what you are doing. MOVO Boost is about the format, not the formula."
+      },
+      "blocks": {
+        "r1": { "type": "row", "settings": { "feature": "Electrolytes", "us": "yes", "b": "yes", "c": "yes" } },
+        "r2": {
+          "type": "row",
+          "settings": { "feature": "Zero sugar", "us": "yes", "b": "no", "c": "part", "c_note": "Varies by brand" }
+        },
+        "r3": { "type": "row", "settings": { "feature": "No bottle", "us": "yes", "b": "no", "c": "no" } },
+        "r4": { "type": "row", "settings": { "feature": "No mixing", "us": "yes", "b": "yes", "c": "no" } },
+        "r5": {
+          "type": "row",
+          "settings": {
+            "feature": "Pocket sized",
+            "us": "yes",
+            "b": "no",
+            "c": "part",
+            "c_note": "The sticks are, the water is not"
+          }
+        },
+        "r6": {
+          "type": "row",
+          "settings": {
+            "feature": "Use anywhere",
+            "us": "yes",
+            "b": "part",
+            "b_note": "Only if you are carrying it",
+            "c": "no",
+            "c_note": "Needs water"
+          }
+        }
+      },
+      "block_order": ["r1", "r2", "r3", "r4", "r5", "r6"]
+    },
+
+    "origin": {
+      "type": "media-split",
+      "settings": {
+        "accent": "brand",
+        "background": "surface",
+        "eyebrow": "Origin",
+        "heading": "Developed in Florida. Made in Denmark.",
+        "body": "<p>MOVO Boost is formulated and produced in Denmark, in food-grade facilities held to EU standards. Scandinavian precision, applied to something as simple as staying hydrated.</p>",
+        "cta_text": "Read our story",
+        "cta_link": "/pages/story",
+        "image_1_asset": "denmark-lab.jpg",
+        "image_1_alt": "A scientist weighing minerals on a precision scale in a bright Danish lab",
+        "image_2_asset": "denmark-production.jpg",
+        "image_2_alt": "MOVO Boost tins moving along a stainless steel production line"
+      },
+      "blocks": {
+        "p1": { "type": "point", "settings": { "text": "Formulated and blended in Denmark" } },
+        "p2": { "type": "point", "settings": { "text": "Produced under EU food-safety standards" } },
+        "p3": { "type": "point", "settings": { "text": "Every batch measured, mixed and checked" } }
+      },
+      "block_order": ["p1", "p2", "p3"]
+    },
+
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "accent": "brand",
+        "eyebrow": "Get the drop",
+        "heading": "Restocks, flavors, first access.",
+        "body": "New flavors land first with the list. One email when it matters, never more.",
+        "button_text": "Sign up"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "marquee",
+    "flavors",
+    "how",
+    "zero",
+    "stats",
+    "compare",
+    "origin",
+    "newsletter"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "sections": {
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "eyebrow": "Contact",
+        "heading": "Ask us anything.",
+        "body": "<p>Order and subscription questions get answered first. For anything about ingredients or how to use a pouch, the FAQ probably has it already.</p>",
+        "email": "hello@movoboost.com",
+        "instagram_handle": "@movoboost",
+        "button_text": "Send message",
+        "success_message": "Thanks — we’ve got your message and we’ll be in touch soon."
+      }
+    },
+    "faq_link": {
+      "type": "rich-text",
+      "settings": {
+        "background": "surface",
+        "source": "section",
+        "align": "center",
+        "heading": "Fifteen answers, already written",
+        "body": "<p>Daily limits, xylitol, whether children can use it, what happens if someone swallows a pouch — all covered.</p>",
+        "cta_text": "Read the FAQ",
+        "cta_link": "/pages/faq"
+      }
+    }
+  },
+  "order": ["form", "faq_link"]
+}

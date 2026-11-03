@@ -1,0 +1,48 @@
+{
+  "sections": {
+    "detail": {
+      "type": "ingredient-detail",
+      "settings": {
+        "back_text": "Back to ingredients",
+        "back_link": "/pages/ingredients",
+        "cta_text": "Shop MOVO Boost",
+        "cta_link": "/collections/pouches"
+      }
+    },
+    "stats": {
+      "type": "stat-band",
+      "settings": {
+        "accent": "brand",
+        "eyebrow": "Per pouch",
+        "heading": "The full panel",
+        "body": "Every active and its dose, identical in Mint and Citrus.",
+        "cta_text": "All ingredients",
+        "cta_link": "/pages/ingredients"
+      },
+      "blocks": {
+        "n1": {
+          "type": "stat",
+          "settings": { "value": "250", "unit": "mg", "label": "Sodium", "link": "/pages/sodium" }
+        },
+        "n2": {
+          "type": "stat",
+          "settings": { "value": "75", "unit": "mg", "label": "Potassium", "link": "/pages/potassium" }
+        },
+        "n3": {
+          "type": "stat",
+          "settings": { "value": "15", "unit": "mg", "label": "Magnesium", "link": "/pages/magnesium" }
+        },
+        "n4": {
+          "type": "stat",
+          "settings": { "value": "100", "unit": "mg", "label": "L-Taurine", "link": "/pages/l-taurine" }
+        },
+        "n5": {
+          "type": "stat",
+          "settings": { "value": "0", "unit": "g", "label": "Sugar", "highlight": true }
+        }
+      },
+      "block_order": ["n1", "n2", "n3", "n4", "n5"]
+    }
+  },
+  "order": ["detail", "stats"]
+}

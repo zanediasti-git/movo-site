@@ -1,0 +1,43 @@
+{%- comment -%}
+  Usage: {% render 'product-card', product: product %}
+  Tints itself from the product's `custom.flavor` metafield so Mint and Citrus
+  cards pick up their own accent without any per-flavor CSS.
+{%- endcomment -%}
+
+{%- assign flavor = product.metafields.custom.flavor.value | downcase -%}
+{%- assign taste_note = product.metafields.custom.taste_note.value -%}
+{%- assign pouches = product.metafields.custom.pouches_per_tin.value | default: 18 -%}
+
+<article class="pcard reveal" data-flavor="{{ flavor | default: 'brand' }}">
+  <a class="pcard__media media-fill" href="{{ product.url }}" tabindex="-1" aria-hidden="true">
+    {%- if product.featured_image -%}
+      <img
+        src="{{ product.featured_image | image_url: width: 900 }}"
+        alt=""
+        width="640"
+        height="640"
+        loading="lazy"
+      >
+    {%- endif -%}
+  </a>
+
+  <div class="pcard__body">
+    <h3 class="pcard__title">
+      <a href="{{ product.url }}">{{ product.title }}</a>
+    </h3>
+
+    {%- if taste_note != blank -%}
+      <p class="pcard__note">{{ taste_note }}</p>
+    {%- endif -%}
+
+    <p class="pcard__meta">
+      <span class="pcard__count">{{ pouches }}</span>
+      {{ 'products.product.pouches_label' | t }}
+    </p>
+
+    <div class="pcard__foot">
+      {% render 'price', price: product.price_min, size: 'sm', suffix: 'from' %}
+      <span class="link-arrow">Shop</span>
+    </div>
+  </div>
+</article>

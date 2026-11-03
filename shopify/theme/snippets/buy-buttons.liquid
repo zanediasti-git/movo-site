@@ -1,0 +1,26 @@
+{%- comment -%}
+  Quantity plus the add-to-cart button. Must be rendered inside the product
+  form so quantity and selling plan post together.
+{%- endcomment -%}
+
+{%- assign current = product.selected_or_first_available_variant -%}
+
+<div class="buy__row">
+  {% render 'quantity-selector' %}
+
+  <button
+    class="btn btn--primary btn--lg buy__submit"
+    type="submit"
+    name="add"
+    data-add-button
+    {% unless current.available %}disabled{% endunless %}
+  >
+    <span data-add-label>
+      {%- if current.available -%}
+        {{ 'products.product.add_to_cart' | t }}
+      {%- else -%}
+        {{ 'products.product.sold_out' | t }}
+      {%- endif -%}
+    </span>
+  </button>
+</div>

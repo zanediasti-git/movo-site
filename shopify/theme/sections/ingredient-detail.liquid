@@ -1,0 +1,50 @@
+{{ 'ingredients.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  Single-ingredient page. Label and dose come from page metafields
+  (custom.label, custom.dose) so each ingredient page is just content.
+{%- endcomment -%}
+
+<section class="section indetail">
+  <div class="container container--narrow">
+    <a class="indetail__back link-arrow link-arrow--back" href="{{ section.settings.back_link }}">
+      {{ section.settings.back_text }}
+    </a>
+
+    {%- assign label = page.metafields.custom.label.value -%}
+    {%- assign dose = page.metafields.custom.dose.value -%}
+
+    {%- if label != blank -%}
+      <p class="eyebrow">{{ label }}</p>
+    {%- endif -%}
+
+    <h1 class="display-2">{{ page.title }}</h1>
+
+    {%- if dose != blank -%}
+      <p class="indetail__dose">{{ dose }}</p>
+    {%- endif -%}
+
+    <div class="prose indetail__body">{{ page.content }}</div>
+
+    <div class="section-foot">
+      <a class="btn btn--primary" href="{{ section.settings.cta_link }}">
+        <span>{{ section.settings.cta_text }}</span>
+      </a>
+      <a class="btn btn--ghost" href="{{ section.settings.back_link }}">
+        <span>All ingredients</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredient detail",
+  "settings": [
+    { "type": "text", "id": "back_text", "label": "Back link text", "default": "Back to ingredients" },
+    { "type": "url", "id": "back_link", "label": "Back link", "default": "/pages/ingredients" },
+    { "type": "text", "id": "cta_text", "label": "Button", "default": "Shop MOVO Boost" },
+    { "type": "url", "id": "cta_link", "label": "Button link", "default": "/collections/pouches" }
+  ]
+}
+{% endschema %}

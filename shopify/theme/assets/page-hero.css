@@ -1,0 +1,48 @@
+.phero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(2.75rem, 7vw, 5.5rem);
+  background:
+    radial-gradient(90% 120% at 15% 0%, color-mix(in srgb, var(--c-accent) 40%, transparent), transparent 60%),
+    radial-gradient(70% 80% at 100% 100%, color-mix(in srgb, var(--c-brand) 18%, transparent), transparent 55%),
+    var(--c-base);
+  border-bottom: 1px solid var(--c-line);
+}
+
+.phero--image {
+  padding-block: clamp(3.5rem, 9vw, 7rem);
+}
+
+.phero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.phero__bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to right,
+    var(--c-base) 8%,
+    color-mix(in srgb, var(--c-base) 70%, transparent) 55%,
+    color-mix(in srgb, var(--c-accent) 16%, transparent) 100%
+  );
+}
+
+.phero__inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* Constrain the type, not the container, so the masthead keeps its gutters. */
+.phero .display-2 {
+  max-width: 24ch;
+}
+
+.phero__lede {
+  max-width: 52ch;
+  margin-top: 1rem;
+}

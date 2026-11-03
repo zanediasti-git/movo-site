@@ -1,0 +1,81 @@
+{%- comment -%}
+  One cart line. Shared by the drawer and the cart page.
+  Usage: {% render 'cart-line-item', item: item, index: forloop.index %}
+{%- endcomment -%}
+
+<li class="cart-line" data-cart-line="{{ item.key }}">
+  <a class="cart-line__media media-fill" href="{{ item.url }}">
+    {%- if item.image -%}
+      <img src="{{ item.image | image_url: width: 240 }}" alt="{{ item.image.alt | escape }}" width="120" height="120" loading="lazy">
+    {%- endif -%}
+  </a>
+
+  <div class="cart-line__body">
+    <a class="cart-line__title" href="{{ item.url }}">{{ item.product_title }}</a>
+    <p class="cart-line__variant">{{ item.variant_title }}</p>
+
+    {%- if item.selling_plan_allocation -%}
+      <p class="cart-line__plan">
+        {% render 'icon', name: 'refresh' %}
+        {{ item.selling_plan_allocation.selling_plan.name }}
+      </p>
+    {%- endif -%}
+
+    {%- if item.properties['Box'] != blank -%}
+      <p class="cart-line__plan">
+        {% render 'icon', name: 'bolt' %}
+        {{ item.properties['Box'] }}
+      </p>
+    {%- elsif item.properties['_bundle'] != blank -%}
+      <p class="cart-line__plan">
+        {% render 'icon', name: 'bolt' %}
+        Mixed box
+      </p>
+    {%- endif -%}
+
+    <div class="cart-line__foot">
+      <div class="qty" data-qty>
+        <button
+          class="qty__btn"
+          type="button"
+          name="minus"
+          data-cart-change="{{ item.key }}"
+          data-quantity="{{ item.quantity | minus: 1 }}"
+        >
+          <span class="visually-hidden">{{ 'products.product.decrease_quantity' | t }}</span>
+          {% render 'icon', name: 'minus' %}
+        </button>
+
+        <input
+          class="qty__input"
+          type="number"
+          value="{{ item.quantity }}"
+          min="0"
+          aria-label="{{ 'products.product.quantity' | t }}"
+          data-cart-quantity="{{ item.key }}"
+        >
+
+        <button
+          class="qty__btn"
+          type="button"
+          name="plus"
+          data-cart-change="{{ item.key }}"
+          data-quantity="{{ item.quantity | plus: 1 }}"
+        >
+          <span class="visually-hidden">{{ 'products.product.increase_quantity' | t }}</span>
+          {% render 'icon', name: 'plus' %}
+        </button>
+      </div>
+
+      {% render 'price',
+        price: item.final_line_price,
+        compare_at: item.original_line_price,
+        size: 'sm'
+      %}
+    </div>
+
+    <button class="cart-line__remove" type="button" data-cart-change="{{ item.key }}" data-quantity="0">
+      {{ 'cart.general.remove' | t }}
+    </button>
+  </div>
+</li>

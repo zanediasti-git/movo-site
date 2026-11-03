@@ -1,0 +1,92 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "accent": "brand",
+        "eyebrow": "The science",
+        "heading": "Why electrolytes, and why a pouch.",
+        "lede": "Hydration isn’t only about how much water you drink. It’s about whether your body can hold on to it and use it. That’s what electrolytes are for.",
+        "image_asset": "science-hero.jpg"
+      }
+    },
+
+    "short": {
+      "type": "rich-text",
+      "settings": {
+        "source": "section",
+        "heading": "The short explanation",
+        "body": "<p>Electrolytes are minerals that carry an electrical charge when dissolved in your body’s fluids. They govern how water moves between your bloodstream and your cells, how nerves send signals, and how muscles contract and release.</p><p>You lose them when you sweat — sodium most of all. Replace the fluid without replacing the minerals and your body has a harder time holding on to what you just drank. That’s the gap MOVO Boost is built to fill.</p>"
+      }
+    },
+
+    "actives": {
+      "type": "ingredient-grid",
+      "settings": {
+        "background": "surface",
+        "eyebrow": "Four actives",
+        "heading": "What each one is doing",
+        "body": "Per pouch, identical in Mint and Citrus."
+      },
+      "blocks": {
+        "a1": {
+          "type": "ingredient",
+          "settings": {
+            "label": "Electrolyte",
+            "name": "Sodium",
+            "dose": "250 mg",
+            "body": "The electrolyte you lose most in sweat. Sodium helps keep fluid in your bloodstream rather than passing straight through, and it’s central to nerve signalling.",
+            "link": "/pages/sodium"
+          }
+        },
+        "a2": {
+          "type": "ingredient",
+          "settings": {
+            "label": "Electrolyte",
+            "name": "Potassium",
+            "dose": "75 mg",
+            "body": "Sodium’s counterpart. Potassium works inside the cell, and the balance between the two is what drives normal muscle contraction.",
+            "link": "/pages/potassium"
+          }
+        },
+        "a3": {
+          "type": "ingredient",
+          "settings": {
+            "label": "Electrolyte",
+            "name": "Magnesium",
+            "dose": "15 mg",
+            "body": "Involved in hundreds of enzymatic reactions, including the ones that let a contracted muscle relax again and that release energy from food.",
+            "link": "/pages/magnesium"
+          }
+        },
+        "a4": {
+          "type": "ingredient",
+          "settings": {
+            "label": "Amino acid",
+            "name": "L-Taurine",
+            "dose": "100 mg",
+            "body": "An amino acid concentrated in muscle tissue. Taurine helps regulate fluid balance at the cellular level and supports muscle function.",
+            "link": "/pages/l-taurine"
+          }
+        }
+      },
+      "block_order": ["a1", "a2", "a3", "a4"]
+    },
+
+    "format": {
+      "type": "rich-text",
+      "settings": {
+        "source": "section",
+        "heading": "Why the pouch format",
+        "body": "<p>The inside of your cheek and lip is thin, well supplied with blood vessels, and permanently moist. Placing a pouch there puts the formula in contact with that tissue and releases it steadily over roughly 15 to 20 minutes, rather than all at once.</p><p>One of the biggest advantages of the pouch format is that instead of an athlete drinking their electrolytes before a game or practice and then progressively dehydrating, athletes who use MOVO Boost can hydrate continuously during activity.</p><p>The practical advantage is the one that matters most day to day: there is nothing to mix and nothing to carry. You don’t need to find water, you don’t need a bottle, and your hands stay free. For a lot of people the best electrolyte product is simply the one they actually have on them.</p>",
+        "callout_heading": "Being straight with you",
+        "callout_body": "<p>We’re not claiming MOVO Boost hydrates you better than water. It delivers electrolytes in an easy-to-use format that travels with you. It does not replace drinking water — in fact the effects of MOVO Boost are enhanced considerably by drinking water. MOVO Boost isn’t a medicine, it is a food supplement, and it isn’t intended to diagnose, treat, cure, or prevent any disease.</p>",
+        "cta_text": "Go deeper on ingredients",
+        "cta_link": "/pages/ingredients",
+        "cta2_text": "Read the FAQ",
+        "cta2_link": "/pages/faq"
+      }
+    }
+  },
+  "order": ["hero", "short", "actives", "format"]
+}

@@ -1,0 +1,177 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "MOVO Boost",
+    "theme_version": "0.1.0",
+    "theme_author": "MOVO Boost",
+    "theme_documentation_url": "https://movoboost.com",
+    "theme_support_url": "https://movoboost.com"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "label": "Logo width",
+        "min": 60,
+        "max": 200,
+        "step": 5,
+        "unit": "px",
+        "default": 110
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      },
+      {
+        "type": "text",
+        "id": "tagline",
+        "label": "Tagline",
+        "default": "Hydration without the bottle"
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Base"
+      },
+      {
+        "type": "color",
+        "id": "color_base",
+        "label": "Page background",
+        "default": "#f3fffc"
+      },
+      {
+        "type": "color",
+        "id": "color_surface",
+        "label": "Raised surface",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_ink",
+        "label": "Ink (text)",
+        "default": "#0a3d4c"
+      },
+      {
+        "type": "header",
+        "content": "Accents"
+      },
+      {
+        "type": "color",
+        "id": "color_brand",
+        "label": "Brand blue",
+        "default": "#00b4e8"
+      },
+      {
+        "type": "color",
+        "id": "color_volt",
+        "label": "Coral (primary button)",
+        "default": "#ff4b3e"
+      },
+      {
+        "type": "header",
+        "content": "Flavors"
+      },
+      {
+        "type": "color",
+        "id": "color_mint",
+        "label": "Mint accent",
+        "default": "#00d9a8"
+      },
+      {
+        "type": "color",
+        "id": "color_citrus",
+        "label": "Citrus accent",
+        "default": "#ff9f1a"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "select",
+        "id": "display_transform",
+        "label": "Headline case",
+        "options": [
+          { "value": "uppercase", "label": "Uppercase" },
+          { "value": "none", "label": "As typed" }
+        ],
+        "default": "uppercase"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_italic",
+        "label": "Italic headlines",
+        "info": "The sporty, forward-leaning look. Turn off for a flatter, more clinical feel.",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_drawer_enabled",
+        "label": "Open a cart drawer when adding to cart",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "free_shipping_threshold",
+        "label": "Free shipping threshold",
+        "info": "Amount in dollars. Leave blank to hide the shipping progress bar.",
+        "default": "45"
+      }
+    ]
+  },
+  {
+    "name": "Compliance",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "allergen_warning",
+        "label": "Allergen warning",
+        "default": "<p><strong>Contains xylitol.</strong> Keep away from dogs and other pets. Xylitol is toxic to dogs even in small amounts.</p>"
+      },
+      {
+        "type": "richtext",
+        "id": "supplement_disclaimer",
+        "label": "Supplement disclaimer",
+        "default": "<p>MOVO Boost is a food supplement, not a medicine. It is not intended to diagnose, treat, cure, or prevent any disease.</p>"
+      }
+    ]
+  },
+  {
+    "name": "Social",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram URL"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok",
+        "label": "TikTok URL"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube",
+        "label": "YouTube URL"
+      }
+    ]
+  }
+]

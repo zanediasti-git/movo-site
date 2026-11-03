@@ -1,0 +1,68 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-collection",
+      "settings": { "eyebrow": "Shop" }
+    },
+    "marquee": {
+      "type": "claims-marquee",
+      "settings": { "accent": "volt", "speed": 40 },
+      "blocks": {
+        "c1": { "type": "claim", "settings": { "text": "Zero sugar" } },
+        "c2": { "type": "claim", "settings": { "text": "Zero nicotine" } },
+        "c3": { "type": "claim", "settings": { "text": "Zero caffeine" } },
+        "c4": { "type": "claim", "settings": { "text": "18 per tin" } },
+        "c5": { "type": "claim", "settings": { "text": "Made in Denmark" } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4", "c5"]
+    },
+    "how": {
+      "type": "how-it-works",
+      "settings": {
+        "layout": "compact",
+        "eyebrow": "Three steps",
+        "heading": "How MOVO Boost works",
+        "body": "No shaker. No bottle. No waiting for powder to dissolve."
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Pop it in",
+            "summary": "Place one pouch between lip and gum.",
+            "image_asset": "step-pop-it-in.jpg",
+            "image_alt": "A person holding a MOVO Boost pouch up to their mouth"
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Keep moving",
+            "summary": "No mixing, shaker, or bottle.",
+            "image_asset": "step-keep-moving.jpg",
+            "image_alt": "A runner mid-stride on a sunlit path"
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Hydrate anywhere",
+            "summary": "Electrolytes wherever you go.",
+            "image_asset": "step-hydrate-anywhere.jpg",
+            "image_alt": "A MOVO Boost tin being slipped into a trouser pocket"
+          }
+        }
+      },
+      "block_order": ["s1", "s2", "s3"]
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "accent": "brand",
+        "eyebrow": "Get the drop",
+        "heading": "Restocks, flavors, first access."
+      }
+    }
+  },
+  "order": ["main", "marquee", "how", "newsletter"]
+}

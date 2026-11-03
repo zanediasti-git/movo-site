@@ -1,0 +1,53 @@
+.rich .prose ul {
+  display: grid;
+  gap: 0.6rem;
+  margin: 1.25rem 0;
+}
+
+.rich .prose li {
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.rich .prose li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 0.45rem;
+  height: 0.45rem;
+  background: var(--c-accent);
+}
+
+/* Set-apart aside for honesty notes and caveats. */
+.callout {
+  margin-top: 2rem;
+  padding: clamp(1.1rem, 2.5vw, 1.6rem);
+  border-left: 3px solid var(--c-volt);
+  background: var(--c-surface);
+  color: var(--c-text-soft);
+  font-size: var(--fs-sm);
+}
+
+.callout__title {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--c-text);
+}
+
+.rich__notice {
+  margin-top: 1.5rem;
+}
+
+.rich--center .prose,
+.rich--center .section-head {
+  text-align: center;
+}
+
+.rich--center .section-foot {
+  justify-content: center;
+}
